@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "Hello World!"
-tagline: Supporting tagline
+title: Work in progress...
+tagline: null
 published: true
 ---
 
 {% include JB/setup %}
-
