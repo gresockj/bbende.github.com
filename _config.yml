@@ -14,10 +14,10 @@ markdown: kramdown
 title : Jekyll Bootstrap-3
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
+  name : Bryan Bendee
+  email : bbende@gmail.com
+  github : bbende
+  twitter : bbende
   feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
