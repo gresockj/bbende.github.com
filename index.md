@@ -5,4 +5,4 @@ tagline: null
 published: true
 ---
 
-include JB/setup
+{% include JB/setup %}
