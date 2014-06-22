@@ -8,10 +8,10 @@
     <meta name="author" content="{{ site.author.name }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="{{site.assetpath}}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
     <!--[if lt IE 9]>
-      <script src="{{site.assetpath}}/resources/respond/Respond.min.js"></script>
+      <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
     <![endif]-->
 
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
@@ -57,7 +57,7 @@
     </div>
 
     {% include JB/analytics %}
-    <script src="{{site.assetpath}}/resources/jquery/jquery.min.js"></script>
-    <script src="{{site.assetpath}}/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ ASSET_PATH }}/resources/jquery/jquery.min.js"></script>
+    <script src="{{ ASSET_PATH }}/resources/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
