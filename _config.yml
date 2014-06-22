@@ -136,3 +136,4 @@ JB :
   
 prose:
   siteurl : 'http://bbende.github.io'
+  ASSET_PATH : 'http://bbende.github.io/assets/themes/bootstrap'
