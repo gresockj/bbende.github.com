@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Work in progress...
+title: Latest Posts
 tagline: null
 published: true
 ---

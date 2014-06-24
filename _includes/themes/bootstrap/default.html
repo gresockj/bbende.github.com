@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ ASSET_PATH }}/css/blog.css" rel="stylesheet">
   
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
@@ -20,41 +21,70 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-        </div>
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">        
+	    <div class="container">
+	        <div class="navbar-header">
+	            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+	        </div>
+	        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	            <ul class="nav navbar-nav">
+	                {% assign pages_list = site.pages %}
+		            {% assign group = 'navigation' %}
+		            {% include JB/pages_list %}
+	            </ul>
+	        </nav>
+	    </div>
+	</header>
+		
+    <div id="body" class="container"> 
+	  <div class="row">
+	    <div class="col-md-8">
+	      {{ content }}
+		</div>
+        <div class="col-md-4">
+	      <div class="well text-center">
+		    <div class="row">
+			  <div class="col-md-4">
+		        <img src="self_photo.jpg" class="img-responsive">
+			  </div>
+			  <div class="col-md-8">
+			    <ul class="list-unstyled">
+			      <li><div class="h3">{{ site.author.name }}</div></li>
+			      <li>
+				    <strong>Twitter:</strong> 
+				    <a href="https://twitter.com/{{ site.author.twitter }}" data-link-color="#0069D6" data-show-count="true">
+					  @{{ site.author.twitter }}</a>
+			      </li>
+			      <li>
+				    <strong>Github:</strong> 
+				    <a href="https://github.com/{{ site.author.github }}" data-link-color="#0069D6" data-show-count="true">
+					  {{ site.author.github }}</a>
+			      </li>   
+			    </ul>
+			  </div>
+	      </div>
+		</div>
+	  </div>
+    </div>
 
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      {{ content }}
-      <hr>
-      <footer>
-        <p>
+    <footer>
+	  <div class="container"> 
+	  	<p>
           &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
           <span class="pull-right text-muted">
-            powered by
+            Powered by
             <a href="http://dbtek.github.io/jekyll-bootstrap-3" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll-Bootstrap-3</a>
             and <a href="http://getbootstrap.com" target="_blank">Twitter Bootstrap 3.0.3</a>
           </span>
         </p>
-      </footer>
-    </div>
+      </div>
+	</footer>	
 
     {% include JB/analytics %}
     <script src="{{ ASSET_PATH }}/resources/jquery/jquery.min.js"></script>
