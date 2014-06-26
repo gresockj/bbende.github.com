@@ -6,6 +6,13 @@ footer {
     margin: 10px 0;
 }
 
+.sidebar-list > li > a{
+    color: black;
+}
+.sidebar-list > li > a:hover {
+    color: gray;
+}
+
 /*
 .navbar,header {
   	background-color: #428bca;
