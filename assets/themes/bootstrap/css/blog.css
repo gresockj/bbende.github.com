@@ -1,16 +1,28 @@
 body {
     margin-top: 75px;
+	
+}
+
+#body {
+	background:white;
+	padding: 20px;
+	border-radius: 10px;
 }
 
 footer {
     margin: 10px 0;
 }
 
-.sidebar-list > li > a{
+.blog-list > li > a{
     color: black;
 }
-.sidebar-list > li > a:hover {
+.blog-list > li > a:hover {
     color: gray;
+}
+
+.blog-panel-header {
+	background: black;
+	color: white;
 }
 
 /*

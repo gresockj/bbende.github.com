@@ -75,24 +75,24 @@
 	      	</div>
 		  </div>
 		  <!-- End info panel -->
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 		    	<div class="panel-heading">
-		        	<h4>Latest Posts</h4>
+		        	<strong>Latest Posts</strong>
 		    	</div>
-		    	<ul class="list-group sidebar-list">
-					{% for post in site.posts %}
+		    	<ul class="list-group blog-list">
+					{% for post in site.posts offset: 0 limit: 5  %}
 					    <li class="list-group-item">
 							<span><strong>{{ post.date | date_to_string }}</strong></span> &raquo; 
 							<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
 						</li>
-					  {% endfor %}
+					 {% endfor %}
 		    	</ul>
 			</div>
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 			    <div class="panel-heading">
-			        <h4>Categories</h4>
+			        <strong>Categories</strong>
 			    </div>
-				<ul class="list-group sidebar-list">
+				<ul class="list-group blog-list">
 			        {% assign categories_list = site.categories %} 
 					{% for category in categories_list %} 
 				    	<li class="list-group-item">
@@ -102,12 +102,12 @@
 				    {% endfor %}
 			    </ul>
 			</div>
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 			    <div class="panel-heading">
-			        <h4>Tags</h4>
+			        <strong>Tags</strong>
 			    </div>
 			    <div class="panel-body">
-			        <ul class="list-inline sidebar-list">
+			        <ul class="list-inline blog-list">
 			            {% assign tags_list = site.tags %}  
 						{% for tag in tags_list %} 
 					    	<li>
