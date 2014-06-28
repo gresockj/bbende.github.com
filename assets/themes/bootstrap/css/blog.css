@@ -13,6 +13,7 @@ footer {
     margin: 10px 0;
 }
 
+
 .blog-list > li > a{
     color: black;
 }
@@ -20,9 +21,18 @@ footer {
     color: gray;
 }
 
-.blog-panel-header {
-	background: black;
-	color: white;
+/**
+.panel-default > .panel-heading {
+	background: #373737;
+	color: #DEDEDE;
+}*/
+
+.blog-panel-body {
+	background: #FBFBFB;
+}
+
+.blog-button {
+	margin-bottom: 10px;
 }
 
 /*
