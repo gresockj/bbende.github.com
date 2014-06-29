@@ -5,18 +5,24 @@ header: Posts By Tag
 group: navigation
 ---
 {% include JB/setup %}
-
-<!-- 
-<ul class="list-inline blog-list">
-  {% assign tags_list = site.tags %}  
-  {% include JB/tags_list %}
-</ul>
--->
-
+<h4>Tags</h4>
+<div class="row">
+<div class="col-md-6">
 {% for tag in site.tags %} 
-  <h4 id="{{ tag[0] }}-ref">{{ tag[0] }}</h4>
-  <ul>
+<div>
+	<div>
+		<hr/>
+		<span class="glyphicon glyphicon-bookmark"></span>&nbsp {{ tag[0] | join: "/" }}	
+	</div>
+  	<ul>
     {% assign pages_list = tag[1] %}  
-    {% include JB/pages_list %}
-  </ul>
+	{% for page in pages_list %}
+		<li>
+			<a href="{{ BASE_PATH }}{{page.url}}"><span>{{ page.date | date_to_string }}</span> &raquo; {{page.title}}</a>
+		</li>
+	{% endfor %}
+  	</ul>
+</div>
 {% endfor %}
+</div>
+</div>

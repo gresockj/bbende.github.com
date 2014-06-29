@@ -83,7 +83,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : facebook
     disqus :
       short_name : jekyllbootstrap
     livefyre :
@@ -91,7 +91,7 @@ JB :
     intensedebate :
       account : 123abc
     facebook :
-      appid : 123
+      appid : 680042025415608
       num_posts: 5
       width: 580
       colorscheme: light
