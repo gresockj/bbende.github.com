@@ -7,17 +7,17 @@ published: true
 
 {% include JB/setup %}
 
-<!-- 
-<div class="jumbotron" style="background-image: url(grandcanyon.jpg); background-size: 100%;">
+<!--  
+<div class="jumbotron" style="opacity: 0.8; color:white; background-image: url(grand-canyon.jpg); background-size: 100%; background-repeat: no-repeat">
    <div class="container for-about">
-   <h1>About</h1>
+   <h1>Welcome!</h1>
+	<p>Software Development, Big Data, & Technology</p>
    </div>
 </div>
 -->
 
-<div class="well">
-	<h1>Welcome!</h1>
-</div>
-
-<div style="margin-top:100px">
+<div>
+{% assign page = site.posts.first %}
+{% assign content = page.content %}
+{% include themes/bootstrap/post.html %}
 </div>
