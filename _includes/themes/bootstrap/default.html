@@ -10,7 +10,7 @@
 
     <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{ ASSET_PATH }}/css/blog.css" rel="stylesheet">
-  
+
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -21,7 +21,7 @@
   </head>
 
   <body>
-	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">        
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 	    <div class="container">
 	        <div class="navbar-header">
 	            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -43,49 +43,49 @@
 	        </nav>
 	    </div>
 	</header>
-	
-    <div id="body" class="container"> 
-	  <div class="row">
-	    <div class="col-md-8">
-	      {{ content }}
-		</div>
+
+    <div id="body" class="container">
+	    <div class="row">
+	        <div class="col-md-8">
+                {{ content }}
+		    </div>
 		<!-- Start sidebar -->
 		<div class="col-md-4">
 		  <!-- Start info panel -->
-	      <div class="panel panel-default">
-			<div class="panel-heading">
-		        <strong>{{ site.author.name }}</strong>
-		    </div>
-			<div class="panel-body blog-panel-body">
-				<div class="row">
-			  		<div class="col-md-5 col-md-offset-1">
-		        		<img src="{{ BASE_PATH }}/self_photo.jpg" class="img-responsive img-rounded">
-			  		</div>
-			  		<div class="col-md-5">
-			    		<div>
-				    		<a href="{{ BASE_PATH }}/atom.xml" data-link-color="#0069D6" data-show-count="true">
-					  			<button type="button" class="btn btn-primary btn-block btn-sm blog-button"> 
-									<strong>Subscribe</strong>
-								</button>
-							</a>
-			    		</div>
-						<div>
-				    		<a href="https://twitter.com/{{ site.author.twitter }}" data-link-color="#0069D6" data-show-count="true">
-					  			<button type="button" class="btn btn-primary btn-block btn-sm blog-button">
-									<strong>Twitter</strong>
-								</button>
-							</a>
-			    		</div>
-						<div>
-				    		<a href="https://github.com/{{ site.author.github }}" data-link-color="#0069D6" data-show-count="true">
-					  			<button type="button" class="btn btn-primary btn-block btn-sm blog-button">
-									<strong>GitHub</strong>
-								</button>
-							</a>
-			    		</div>
-			  		</div>
-	      		</div>
-			</div>
+            <div class="panel panel-default">
+		        <div class="panel-heading">
+                    <strong>About Me</strong>
+		        </div>
+			    <div class="panel-body blog-panel-body">
+				    <div class="row">
+			  		    <div class="col-md-4 ">
+		        		    <img src="{{ BASE_PATH }}/self_photo.jpg" class="img-responsive img-rounded">
+			  		    </div>
+			  		    <div class="col-md-8">
+                           <p>
+                              <strong>{{ site.author.name }}</strong><br/>
+                              <em> Software developer interested in distributed development, big data, & information retrieval</em>
+                           </p>
+                        </div>
+	      		    </div>
+		        </div>
+            <div class="panel-footer text-center">
+                <a href="{{ BASE_PATH }}/atom.xml" data-link-color="#0069D6" data-show-count="true">
+                    <button type="button" class="btn btn-primary btn-sm fixed-button">
+                        <strong>Subscribe</strong>
+                    </button>
+                </a>
+                <a href="https://twitter.com/{{ site.author.twitter }}" data-link-color="#0069D6" data-show-count="true">
+                    <button type="button" class="btn btn-primary btn-sm fixed-button">
+                        <strong>Twitter</strong>
+                    </button>
+                </a>
+                <a href="https://github.com/{{ site.author.github }}" data-link-color="#0069D6" data-show-count="true">
+                    <button type="button" class="btn btn-primary btn-sm fixed-button">
+                        <strong>GitHub</strong>
+                    </button>
+                </a>
+            </div>
 		  </div>
 		  <!-- End info panel -->
 			<div class="panel panel-default">
@@ -95,7 +95,7 @@
 					<ul class="list-group blog-list">
 					{% for post in site.posts offset: 0 limit: 5  %}
 					    <li class="list-group-item">
-							<span>{{ post.date | date_to_string }}</span> &raquo; 
+							<span>{{ post.date | date_to_string }}</span> &raquo;
 							<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
 						</li>
 					 {% endfor %}
@@ -141,7 +141,7 @@
 					    {% for tag in site.tags %}
 					        {% if tag[1].size == i %}
 					        <li>
-					            <a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] }} 
+					            <a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] }}
 									<span class="badge">{{ tag[1].size }}</span></a>
 					        </li>
 					        {% endif %}
@@ -150,13 +150,13 @@
 					</ul>
 			    </div>
 			</div>
-		</div> 
+		</div>
 		<!-- End sidebar -->
 	  </div>
     </div>
-	
+
     <footer>
-	  <div class="container"> 
+	  <div class="container">
 	  	<p>
           &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
           <span class="pull-right text-muted">
@@ -166,7 +166,7 @@
           </span>
         </p>
       </div>
-	</footer>	
+	</footer>
 
     {% include JB/analytics %}
     <script src="{{ ASSET_PATH }}/resources/jquery/jquery.min.js"></script>

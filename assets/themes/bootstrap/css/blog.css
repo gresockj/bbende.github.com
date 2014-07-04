@@ -21,16 +21,14 @@ footer {
     color: gray;
 }
 
-/**
-.panel-default > .panel-heading {
-	background: #373737;
-	color: #DEDEDE;
-}*/
-
 .blog-panel-body {
 	background: #FBFBFB;
 }
 
 .blog-button {
 	margin-bottom: 10px;
+}
+
+.fixed-button {
+    width: 100px;
 }
