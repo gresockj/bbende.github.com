@@ -64,27 +64,35 @@
 			  		    <div class="col-md-8">
                            <p>
                               <strong>{{ site.author.name }}</strong><br/>
-                              <em> Software developer interested in distributed development, big data, & information retrieval</em>
+                              <em> Software developer interested in distributed systems, big data, & information retrieval</em>
                            </p>
                         </div>
 	      		    </div>
 		        </div>
             <div class="panel-footer text-center">
-                <a href="{{ BASE_PATH }}/atom.xml" data-link-color="#0069D6" data-show-count="true">
-                    <button type="button" class="btn btn-primary btn-sm fixed-button">
-                        <strong>Subscribe</strong>
-                    </button>
-                </a>
-                <a href="https://twitter.com/{{ site.author.twitter }}" data-link-color="#0069D6" data-show-count="true">
-                    <button type="button" class="btn btn-primary btn-sm fixed-button">
-                        <strong>Twitter</strong>
-                    </button>
-                </a>
-                <a href="https://github.com/{{ site.author.github }}" data-link-color="#0069D6" data-show-count="true">
-                    <button type="button" class="btn btn-primary btn-sm fixed-button">
-                        <strong>GitHub</strong>
-                    </button>
-                </a>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <a href="{{ BASE_PATH }}/atom.xml" data-show-count="true">
+                            <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                <strong>Subscribe</strong>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://twitter.com/{{ site.author.twitter }}" data-show-count="true">
+                            <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                <strong>Twitter</strong>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://github.com/{{ site.author.github }}" data-show-count="true">
+                           <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                <strong>GitHub</strong>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
 		  </div>
 		  <!-- End info panel -->
