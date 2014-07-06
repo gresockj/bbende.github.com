@@ -46,7 +46,7 @@
 
     <div id="body" class="container">
 	    <div class="row">
-	        <div class="col-md-8">
+	        <div class="col-md-7">
                 {{ content }}
 		    </div>
 		<!-- Start sidebar -->
@@ -59,7 +59,7 @@
 			    <div class="panel-body blog-panel-body">
 				    <div class="row">
 			  		    <div class="col-md-4 ">
-		        		    <img src="{{ BASE_PATH }}/self_photo.jpg" class="img-responsive img-rounded">
+		        		    <img src="{{ BASE_PATH }}/self_photo_2.jpg" class="img-responsive img-rounded">
 			  		    </div>
 			  		    <div class="col-md-8">
                            <p>
@@ -125,7 +125,7 @@
 					        {% if category[1].size == i %}
 					        <li class="list-group-item">
 								<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
-					    		{{ category[0] | join: "/" }} <span class="badge pull-right">{{ category[1].size }}</span>
+					    		{{ category[0] | join: "/" | capitalize }} <span class="badge pull-right">{{ category[1].size }}</span>
 					    	</a></li>
 					        {% endif %}
 					    {% endfor %}
