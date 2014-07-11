@@ -13,6 +13,10 @@ footer {
     margin: 10px 0;
 }
 
+.vcenter {
+    display: table-cell;
+    vertical-align: middle;
+}
 
 .blog-list > li > a{
     color: black;

@@ -46,7 +46,7 @@
 
     <div id="body" class="container">
 	    <div class="row">
-	        <div class="col-md-7">
+	        <div class="col-md-8">
                 {{ content }}
 		    </div>
 		<!-- Start sidebar -->
@@ -54,46 +54,56 @@
 		  <!-- Start info panel -->
             <div class="panel panel-default">
 		        <div class="panel-heading">
-                    <strong>About Me</strong>
+                    <strong>{{ site.author.name }}</strong>
+                    <span class="pull-right"></span>
 		        </div>
 			    <div class="panel-body blog-panel-body">
 				    <div class="row">
-			  		    <div class="col-md-4 ">
+			  		    <div class="col-md-3">
 		        		    <img src="{{ BASE_PATH }}/self_photo_2.jpg" class="img-responsive img-rounded">
-			  		    </div>
-			  		    <div class="col-md-8">
+   			  		    </div>
+			  		    <div class="col-md-9">
                            <p>
-                              <strong>{{ site.author.name }}</strong><br/>
                               <em> Software developer interested in distributed systems, big data, & information retrieval</em>
                            </p>
-                        </div>
-	      		    </div>
-		        </div>
-            <div class="panel-footer text-center">
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1">
-                        <a href="{{ BASE_PATH }}/atom.xml" data-show-count="true">
-                            <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                            <a href="{{ BASE_PATH }}/atom.xml" class="btn btn-default btn-xs" role="button">
                                 <strong>Subscribe</strong>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="https://twitter.com/{{ site.author.twitter }}" data-show-count="true">
-                            <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
-                                <strong>Twitter</strong>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="https://github.com/{{ site.author.github }}" data-show-count="true">
-                           <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                            </a>
+                            <a href="https://twitter.com/{{ site.author.twitter }}" class="btn btn-default btn-xs" role="button">
+                                <strong>@BBende</strong>
+                            </a>
+                            <a href="https://github.com/{{ site.author.github }}" class="btn btn-default btn-xs" role="button">
                                 <strong>GitHub</strong>
-                            </button>
-                        </a>
+                            </a>
+	      		        </div>
                     </div>
-                </div>
-            </div>
+		        </div>
+                <!--
+                <div class="panel-footer text-center">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1">
+                            <a href="{{ BASE_PATH }}/atom.xml" data-show-count="true">
+                                <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                    <strong>Subscribe</strong>
+                              </button>
+                          </a>
+                       </div>
+                       <div class="col-md-3">
+                           <a href="https://twitter.com/{{ site.author.twitter }}" data-show-count="true">
+                                <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                 <strong>Twitter</strong>
+                                </button>
+                           </a>
+                       </div>
+                       <div class="col-md-3">
+                         <a href="https://github.com/{{ site.author.github }}" data-show-count="true">
+                              <button type="button" class="btn btn-primary btn-sm btn-responsive fixed-button">
+                                 <strong>GitHub</strong>
+                              </button>
+                           </a>
+                      </div>
+                   </div>
+             </div> -->
 		  </div>
 		  <!-- End info panel -->
 			<div class="panel panel-default">
