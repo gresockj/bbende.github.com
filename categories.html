@@ -9,14 +9,14 @@ group: navigation
 <h4>Categories</h4>
 <div class="row">
 <div class="col-md-6">
-{% for category in site.categories %} 
+{% for category in site.categories %}
 <div>
 	<div>
 		<hr/>
-		<span class="glyphicon glyphicon-folder-open"></span>&nbsp {{ category[0] | join: "/" }}	
+		<span class="glyphicon glyphicon-folder-open"></span>&nbsp {{ category[0] | join: "/" | capitalize }}
 	</div>
   	<ul>
-    {% assign pages_list = category[1] %}  
+    {% assign pages_list = category[1] %}
 	{% for page in pages_list %}
 		<li>
 			<a href="{{ BASE_PATH }}{{page.url}}"><span>{{ page.date | date_to_string }}</span> &raquo; {{page.title}}</a>
