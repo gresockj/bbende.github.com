@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Welcome!
+title: bryanbende.com
 tagline: null
 published: true
 ---
