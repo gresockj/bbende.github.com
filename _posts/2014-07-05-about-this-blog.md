@@ -3,7 +3,7 @@ layout: post
 title: "About This Blog"
 description: ""
 category: "General"
-tags: [Jekyll, Bootstrap, Jekyll-Bootstrap, IntelliJ]
+tags: [Jekyll, Bootstrap, Jekyll-Bootstrap]
 ---
 {% include JB/setup %}
 

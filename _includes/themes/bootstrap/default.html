@@ -54,18 +54,21 @@
 		  <!-- Start info panel -->
             <div class="panel panel-default">
 		        <div class="panel-heading">
-                    <strong>{{ site.author.name }}</strong>
-                    <span class="pull-right"></span>
-		        </div>
-			    <div class="panel-body blog-panel-body">
+                    <h4 class="panel-title">{{ site.author.name }}</h4>
+                </div>
+			    <div class="panel-body ">
 				    <div class="row">
 			  		    <div class="col-md-3">
 		        		    <img src="{{ BASE_PATH }}/self_photo_2.jpg" class="img-responsive img-rounded">
    			  		    </div>
 			  		    <div class="col-md-9">
                            <p>
-                              <em> Software developer interested in distributed systems, big data, & information retrieval</em>
+                              <em>Software developer interested in distributed systems, big data, & information retrieval</em>
                            </p>
+	      		        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-11">
                             <a href="{{ BASE_PATH }}/atom.xml" class="btn btn-default btn-xs" role="button">
                                 <strong>Subscribe</strong>
                             </a>
@@ -75,15 +78,15 @@
                             <a href="https://github.com/{{ site.author.github }}" class="btn btn-default btn-xs" role="button">
                                 <strong>GitHub</strong>
                             </a>
-	      		        </div>
+                        </div>
                     </div>
 		        </div>
 		  </div>
 		  <!-- End info panel -->
 			<div class="panel panel-default">
-		    	<div class="panel-heading">
-		        	<strong>Latest Posts</strong>
-		    	</div>
+                <div class="panel-heading">
+                    <h4 class="panel-title">Latest Posts</h4>
+                </div>
 					<ul class="list-group blog-list">
 					{% for post in site.posts offset: 0 limit: 5  %}
 					    <li class="list-group-item">
@@ -94,9 +97,9 @@
 		    		</ul>
 			</div>
 			<div class="panel panel-default">
-			    <div class="panel-heading">
-			        <strong>Categories</strong>
-			    </div>
+                <div class="panel-heading">
+                    <h4 class="panel-title">Categories</h4>
+                </div>
 					{% assign categories_max = 0 %}
 					{% for category in site.categories %}
 					    {% if category[1].size > categories_max %}
@@ -117,9 +120,9 @@
 					</ul>
 			</div>
 			<div class="panel panel-default">
-			    <div class="panel-heading">
-			        <strong>Tags</strong>
-			    </div>
+                <div class="panel-heading">
+                    <h4 class="panel-title">Tags</h4>
+                </div>
 			    <div class="panel-body">
 					{% assign tags_max = 0 %}
 					{% for tag in site.tags %}

@@ -3,6 +3,16 @@ body {
 	background: #FBFBFB;
 }
 
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
 #body {
 	background:white;
 	padding: 20px;
