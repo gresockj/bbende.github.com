@@ -23,7 +23,8 @@
   <body>
 	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 	    <div class="container">
-	        <div class="navbar-header">
+            {% assign current = page.url | downcase | split: '/' %}
+            <div class="navbar-header">
 	            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 	                <span class="sr-only">Toggle navigation</span>
 	                <span class="icon-bar"></span>
@@ -35,10 +36,32 @@
 		        </a>
 	        </div>
 	        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-	            <ul class="nav navbar-nav">
+                <ul id="nav-list" class="nav navbar-nav">
+                    <li {% if current[1] == 'archive.html' %}class='active'{% endif %} >
+                        <a href="{{ BASE_PATH }}/archive.html" {% if current[1] == 'archive.html' %}class='active'{% endif %} >
+                            <span class="glyphicon glyphicon-list"></span> Archive
+                        </a>
+                    </li>
+                    <li {% if current[1] == 'categories.html' %}class='active'{% endif %} >
+                        <a href="{{ BASE_PATH }}/categories.html" {% if current[1] == 'categories.html' %}class='active'{% endif %} >
+                            <span class="glyphicon glyphicon-folder-open"></span> Categories
+                        </a>
+                    </li>
+                    <li {% if current[1] == 'tags.html' %}class='active'{% endif %}>
+                        <a href="{{ BASE_PATH }}/tags.html" {% if current[1] == 'tags.html' %}class='active'{% endif %}>
+                            <span class="glyphicon glyphicon-tag"></span> Tags
+                        </a>
+                    </li>
+                    <li {% if current[1] == 'pages.html' %}class='active'{% endif %}>
+                        <a href="{{ BASE_PATH }}/pages.html" {% if current[1] == 'pages.html' %}class='active'{% endif %}>
+                            <span class="glyphicon glyphicon-file"></span> Pages
+                        </a>
+                    </li>
+                    <!--
                     {% assign pages_list = site.pages %}
 		            {% assign group = 'navigation' %}
 		            {% include JB/pages_list %}
+		            -->
 	            </ul>
 	        </nav>
 	    </div>
