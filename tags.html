@@ -7,7 +7,7 @@ group: navigation
 {% include JB/setup %}
 <h4>Tags</h4>
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-10">
 {% for tag in site.tags %}
 <div>
 	<div>
@@ -18,7 +18,8 @@ group: navigation
     {% assign pages_list = tag[1] %}
 	{% for page in pages_list %}
 		<li>
-			<a href="{{ BASE_PATH }}{{page.url}}"><span>{{ page.date | date_to_string }}</span> &raquo; {{page.title}}</a>
+            <span>{{ page.date | date_to_string }}</span> &raquo;
+            <a href="{{ BASE_PATH }}{{page.url}}">{{page.title}}</a>
 		</li>
 	{% endfor %}
   	</ul>
