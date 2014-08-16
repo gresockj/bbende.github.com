@@ -160,7 +160,7 @@
 					        {% if tag[1].size == i %}
 					        <li class="list-group-item">
 					            <a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] }}
-									<span class="badge alert-info">{{ tag[1].size }}</span></a>
+									<span class="badge alert-info pull-right">{{ tag[1].size }}</span></a>
 					        </li>
 					        {% endif %}
 					    {% endfor %}
