@@ -17,33 +17,32 @@ After getting the code working I ran a few tests to see what kind of performance
 ingesting an entire dump file into a single Solr instance on my laptop. The following is the 
 configuration of my system when running these tests:
 
-#### Hardware
-
- * MacBook Pro
- * 2.7 GHz Core I7
- * 16GB Ram
- * 500GB SSD
-
-#### Solr
-
- * Version 4.9
- * autoSoftCommit = 10s
- * autoHardCommit = 60s
- * termVectors, termPositions, termOffests = true for text and title fields
- * Jdk 7u67, 4GB heap, default garbage collection
-
-#### Indexer
-
- * StAX based XML parsing using Apache Commons bzip2 InputStream
- * Configurable batching of documents (defaults to 20)
- * Jdk 7u67, 1GB heap, default garbage collection
+> #### Hardware
+>
+>  * MacBook Pro
+>  * 2.7 GHz Core I7
+>  * 16GB Ram
+>  * 500GB SSD
+>
+> #### Solr
+>
+>  * Version 4.9
+>  * autoSoftCommit = 10s
+>  * autoHardCommit = 60s
+>  * termVectors, termPositions, termOffests = true for text and title fields
+>  * Jdk 7u67, 4GB heap, default garbage collection
+> 
+> #### Indexer
+>
+>  * StAX based XML parsing using Apache Commons bzip2 InputStream
+>  * Configurable batching of documents (defaults to 20)
+>  * Jdk 7u67, 1GB heap, default garbage collection
+> 
+> #### Data
+>
+>  * The english Wikipedia latest articles data set
+>  * 11 GB compressed, 14 million documents
  
-#### Data
-
- * The english Wikipedia latest articles data set
- * 11 GB compressed, 14 million documents
- 
-### Results
 
 Using a batch size of 40 documents and a single-threaded ingest process, the entire dump
 file was indexed in just over three hours. The resulting index is 51 GB on disk
@@ -52,8 +51,6 @@ multiple threads, but did not observe any noticeable increase in performance. I 
 this is because the parsing can't be parallelized since we are only dealing with a single 
 file as an input stream, and adding a batch of documents to Solr seemed to be generally 
 low-latency with no network communication and an SSD. 
-
-### Future Work
 
 In the future I would be interested in testing out the ConucrrentUpdateSolrServer to see
 if this produces any performance gains, as opposed to my own attempt at making the indexer

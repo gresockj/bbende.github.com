@@ -39,29 +39,24 @@
                 <ul id="nav-list" class="nav navbar-nav">
                     <li {% if current[1] == 'archive.html' %}class='active'{% endif %} >
                         <a href="{{ BASE_PATH }}/archive.html" {% if current[1] == 'archive.html' %}class='active'{% endif %} >
-                            <span class="glyphicon glyphicon-list"> </span> Archive
+                            <span class="glyphicon glyphicon-list"></span> &nbsp;Archive
                         </a>
                     </li>
                     <li {% if current[1] == 'categories.html' %}class='active'{% endif %} >
                         <a href="{{ BASE_PATH }}/categories.html" {% if current[1] == 'categories.html' %}class='active'{% endif %} >
-                            <span class="glyphicon glyphicon-folder-open"> </span> Categories
+                            <span class="glyphicon glyphicon-folder-open"></span> &nbsp;Categories
                         </a>
                     </li>
                     <li {% if current[1] == 'tags.html' %}class='active'{% endif %}>
                         <a href="{{ BASE_PATH }}/tags.html" {% if current[1] == 'tags.html' %}class='active'{% endif %}>
-                            <span class="glyphicon glyphicon-tag"> </span> Tags
+                            <span class="glyphicon glyphicon-tag"> </span> &nbsp;Tags
                         </a>
                     </li>
                     <li {% if current[1] == 'pages.html' %}class='active'{% endif %}>
                         <a href="{{ BASE_PATH }}/pages.html" {% if current[1] == 'pages.html' %}class='active'{% endif %}>
-                            <span class="glyphicon glyphicon-file"> </span> Pages
+                            <span class="glyphicon glyphicon-file"> </span> &nbsp;Pages
                         </a>
                     </li>
-                    <!--
-                    {% assign pages_list = site.pages %}
-		            {% assign group = 'navigation' %}
-		            {% include JB/pages_list %}
-		            -->
 	            </ul>
 	        </nav>
 	    </div>
@@ -86,20 +81,29 @@
    			  		    </div>
 			  		    <div class="col-md-9">
                            <p>
-                              <em>Software developer interested in distributed systems, big data, & information retrieval</em>
+                              Software developer interested in distributed systems, big data, & information retrieval
                            </p>
 	      		        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-offset-1 col-md-11">
-                            <a href="{{ BASE_PATH }}/atom.xml" class="btn btn-default btn-xs" role="button">
-                                <strong>Subscribe</strong>
+                        <div class="col-md-3">
+                            <a href="{{ BASE_PATH }}/atom.xml">
+                                <img src="{{ ASSET_PATH }}/resources/social_icons/rss.png" class="img-responsive" />
                             </a>
-                            <a href="https://twitter.com/{{ site.author.twitter }}" class="btn btn-default btn-xs" role="button">
-                                <strong>@BBende</strong>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="https://twitter.com/{{ site.author.twitter }}">
+                                <img src="{{ ASSET_PATH }}/resources/social_icons/twitter.png" class="img-responsive" />
                             </a>
-                            <a href="https://github.com/{{ site.author.github }}" class="btn btn-default btn-xs" role="button">
-                                <strong>GitHub</strong>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="https://github.com/{{ site.author.github }}">
+                                <img src="{{ ASSET_PATH }}/resources/social_icons/github.png" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="http://www.linkedin.com/pub/bryan-bende/7/76/600">
+                                <img src="{{ ASSET_PATH }}/resources/social_icons/linkedin.png" class="img-responsive" />
                             </a>
                         </div>
                     </div>
@@ -146,14 +150,12 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">Tags</h4>
                 </div>
-
 					{% assign tags_max = 0 %}
 					{% for tag in site.tags %}
 					    {% if tag[1].size > tags_max %}
 					        {% assign tags_max = tag[1].size %}
 					    {% endif %}
 					{% endfor %}
-
 					<ul class="list-group blog-list">
 					{% for i in (1..tags_max) reversed %}
 					    {% for tag in site.tags %}
