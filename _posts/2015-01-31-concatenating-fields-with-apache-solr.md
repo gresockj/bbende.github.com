@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Concatenating Fields With Apache Solr"
+title: "Concatenating Fields with Apache Solr"
 description: ""
 category: "Development"
 tags: [Solr]
