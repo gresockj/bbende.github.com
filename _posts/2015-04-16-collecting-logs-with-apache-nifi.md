@@ -66,7 +66,7 @@ Note: At the time of writing this the NiFi Solr processors are maintained in a s
 
 Configure the processors as follows:
 
-* **UDPListener**
+* **ListeneUDP**
   * Set the Port to 8881
 
 * **MergeContent**
