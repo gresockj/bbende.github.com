@@ -15,9 +15,8 @@ most common open-source approaches to large-scale log aggregation are:
 * Flume (using MorphlineSolrSink) + Solr + Hue or Banana
 * Graylog2 (GELF, Graylog Server, Graylog Web UI)
 
-Each approach is generally made up of components that collect logs, process and store logs, and visualizes logs. The 
-flexibility of Apache NiFi (incubating) makes it easy to create a system for collecting logs. The remainder of this 
-post will show how to integrate NiFi, Solr, and Banana to create the following example:
+The remainder of this post will show how to integrate Apache NiFi, Apache Solr, and Banana to create a system for 
+collecting logs. The following diagram shows how the components of the system will interact:
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/01-log-aggregation-architecture.png" class="img-responsive">
 
@@ -49,6 +48,9 @@ the "gettingstarted" collection is up and running
 * Configure the Time Picker panel and change the field to "_timestamp"
 
 ### NiFi Setup
+
+Note: This is based off the NiFi develop branch at the time of writing this, as there are some features not yet 
+available in a released version that we need to make use of.
 
 * Clone the following repository:
 
