@@ -72,13 +72,22 @@
 		  <!-- Start info panel -->
             <div class="panel panel-default">
 		        <div class="panel-heading">
+                <div class="row">
+                <div class="col-xs-10 col-md-10">
                     <h4 class="panel-title">{{ site.author.name }}</h4>
                 </div>
+                  <div class="col-xs-2 col-sm-2">
+                      <a href="{{ BASE_PATH }}/atom.xml">
+                          <img src="{{ ASSET_PATH }}/resources/social_icons/rss.png" class="img-responsive" />
+                      </a>
+                  </div>
+                </div>
+            </div>
 			    <div class="panel-body ">
 				    <div class="row">
 			  		    <div class="col-xs-3 col-md-3">
 		        		    <img src="{{ BASE_PATH }}/self_photo_2.jpg" class="img-responsive img-rounded">
-   			  		    </div>
+   			  		  </div>
 			  		    <div class="col-md-9">
                            <p>
                               Software developer interested in distributed systems, big data, & information retrieval
@@ -86,11 +95,6 @@
 	      		        </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-2 col-md-3">
-                            <a href="{{ BASE_PATH }}/atom.xml">
-                                <img src="{{ ASSET_PATH }}/resources/social_icons/rss.png" class="img-responsive" />
-                            </a>
-                        </div>
                         <div class="col-xs-2 col-md-3">
                             <a href="https://twitter.com/{{ site.author.twitter }}">
                                 <img src="{{ ASSET_PATH }}/resources/social_icons/twitter.png" class="img-responsive" />
@@ -106,6 +110,12 @@
                                 <img src="{{ ASSET_PATH }}/resources/social_icons/linkedin.png" class="img-responsive" />
                             </a>
                         </div>
+                        <div class="col-xs-2 col-md-3">
+                            <a href="http://www.slideshare.net/BryanBende/presentations">
+                                <img src="{{ ASSET_PATH }}/resources/social_icons/slideshare.png" class="img-responsive" />
+                            </a>
+                        </div>
+
                     </div>
 		        </div>
 		  </div>
