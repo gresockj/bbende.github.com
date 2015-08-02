@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="{{ ASSET_PATH }}/css/blog.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/blog.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
@@ -63,126 +63,7 @@
 	</header>
 
     <div id="body" class="container">
-	    <div class="row">
-	        <div class="col-md-8">
-                {{ content }}
-		    </div>
-		<!-- Start sidebar -->
-		<div class="col-md-4">
-		  <!-- Start info panel -->
-            <div class="panel panel-default">
-		        <div class="panel-heading">
-                <div class="row">
-                <div class="col-xs-10 col-md-10">
-                    <h4 class="panel-title">{{ site.author.name }}</h4>
-                </div>
-                  <div class="col-xs-2 col-sm-2">
-                      <a href="{{ BASE_PATH }}/atom.xml">
-                          <img src="{{ ASSET_PATH }}/resources/social_icons/rss.png" class="img-responsive" />
-                      </a>
-                  </div>
-                </div>
-            </div>
-			    <div class="panel-body ">
-				    <div class="row">
-			  		    <div class="col-xs-3 col-md-3">
-		        		    <img src="{{ BASE_PATH }}/self_photo_2.jpg" class="img-responsive img-rounded">
-   			  		  </div>
-			  		    <div class="col-md-9">
-                           <p>
-                              Software developer interested in distributed systems, big data, & information retrieval
-                           </p>
-	      		        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2 col-md-3">
-                            <a href="https://twitter.com/{{ site.author.twitter }}">
-                                <img src="{{ ASSET_PATH }}/resources/social_icons/twitter.png" class="img-responsive" />
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-md-3">
-                            <a href="https://github.com/{{ site.author.github }}">
-                                <img src="{{ ASSET_PATH }}/resources/social_icons/github.png" class="img-responsive" />
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-md-3">
-                            <a href="http://www.linkedin.com/pub/bryan-bende/7/76/600">
-                                <img src="{{ ASSET_PATH }}/resources/social_icons/linkedin.png" class="img-responsive" />
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-md-3">
-                            <a href="http://www.slideshare.net/BryanBende/presentations">
-                                <img src="{{ ASSET_PATH }}/resources/social_icons/slideshare.png" class="img-responsive" />
-                            </a>
-                        </div>
-
-                    </div>
-		        </div>
-		  </div>
-		  <!-- End info panel -->
-			<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Latest Posts</h4>
-                </div>
-					<ul class="list-group blog-list">
-					{% for post in site.posts offset: 0 limit: 5  %}
-					    <li class="list-group-item">
-                           <!-- <span>{{ post.date | date_to_string }}</span> &raquo; -->
-                            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-						</li>
-					 {% endfor %}
-		    		</ul>
-			</div>
-			<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Categories</h4>
-                </div>
-					{% assign categories_max = 0 %}
-					{% for category in site.categories %}
-					    {% if category[1].size > categories_max %}
-					        {% assign categories_max = category[1].size %}
-					    {% endif %}
-					{% endfor %}
-					<ul class="list-group blog-list">
-					{% for i in (1..categories_max) reversed %}
-					    {% for category in site.categories %}
-					        {% if category[1].size == i %}
-					        <li class="list-group-item">
-								<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
-					    		{{ category[0] | join: "/" | capitalize }} <span class="badge alert-info pull-right">{{ category[1].size }}</span>
-					    	</a></li>
-					        {% endif %}
-					    {% endfor %}
-					{% endfor %}
-					</ul>
-			</div>
-			<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Tags</h4>
-                </div>
-					{% assign tags_max = 0 %}
-					{% for tag in site.tags %}
-					    {% if tag[1].size > tags_max %}
-					        {% assign tags_max = tag[1].size %}
-					    {% endif %}
-					{% endfor %}
-					<ul class="list-group blog-list">
-					{% for i in (1..tags_max) reversed %}
-					    {% for tag in site.tags %}
-					        {% if tag[1].size == i %}
-					        <li class="list-group-item">
-					            <a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">{{ tag[0] }}
-									<span class="badge alert-info pull-right">{{ tag[1].size }}</span></a>
-					        </li>
-					        {% endif %}
-					    {% endfor %}
-					{% endfor %}
-					</ul>
-
-			</div>
-		</div>
-		<!-- End sidebar -->
-	  </div>
+	    {{ content }}
     </div>
 
     <footer>
