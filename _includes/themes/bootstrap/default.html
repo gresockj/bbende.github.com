@@ -40,8 +40,8 @@
 	        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul id="nav-list" class="nav navbar-nav">
                   <li {% if current[1] == 'index.html' %}class='active'{% endif %} >
-                      <a href="{{ HOME_PATH }}" {% if current[1] == 'index.html' %}class='navbar-brand active'{% else %}class='navbar-brand'{% endif %} >
-                          <span class="glyphicon glyphicon-home"></span>
+                      <a href="{{ HOME_PATH }}" {% if current[1] == 'index.html' %}class='active'{% endif %} >
+                          <span class="glyphicon glyphicon-home"></span>&nbsp;Home
                       </a>
                   </li>
                     <li {% if current[1] == 'archive.html' %}class='active'{% endif %} >
