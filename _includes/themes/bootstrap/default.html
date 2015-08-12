@@ -21,7 +21,7 @@
   </head>
 
   <body>
-	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+	<header class="navbar navbar-default navbar-fixed-top bs-docs-nav" role="banner">
 	    <div class="container">
             {% assign current = page.url | downcase | split: '/' %}
             <div class="navbar-header">
@@ -31,12 +31,19 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="{{ HOME_PATH }}">
-		         <span class="glyphicon glyphicon-home"></span>
-		        </a>
+	            <!--
+              <a class="navbar-brand" href="{{ HOME_PATH }}">
+		              <span class="glyphicon glyphicon-home"></span>
+		          </a>
+            -->
 	        </div>
 	        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul id="nav-list" class="nav navbar-nav">
+                  <li {% if current[1] == 'index.html' %}class='active'{% endif %} >
+                      <a href="{{ HOME_PATH }}" {% if current[1] == 'index.html' %}class='navbar-brand active'{% else %}class='navbar-brand'{% endif %} >
+                          <span class="glyphicon glyphicon-home"></span>
+                      </a>
+                  </li>
                     <li {% if current[1] == 'archive.html' %}class='active'{% endif %} >
                         <a href="{{ BASE_PATH }}/archive.html" {% if current[1] == 'archive.html' %}class='active'{% endif %} >
                             <span class="glyphicon glyphicon-list"></span> &nbsp;Archive

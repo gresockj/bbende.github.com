@@ -1,22 +1,98 @@
-body {
-    margin-top: 50px;
-	background: #FBFBFB;
-}
-
 /*
  * Override Bootstrap's default container.
  */
-
 @media (min-width: 1200px) {
   .container {
     width: 970px;
   }
 }
 
+/* Decrease the navbar height a little bit by adjusting the min-height and padding */
+.navbar {
+  min-height:32px;
+}
+
+.navbar-nav > li > a {
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+/**
+* Custom navbar colors:
+* http://stackoverflow.com/questions/18529274/change-navbar-color-in-twitter-bootstrap-3
+* http://work.smarchal.com/twbscolor/
+*/
+.navbar-default {
+  background-color: #428bca;
+  border-color: #428bca;
+}
+.navbar-default .navbar-brand {
+  color: #cdddeb;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #cdddeb;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #cdddeb;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #428bca;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #428bca;
+}
+.navbar-default .navbar-toggle {
+  border-color: #428bca;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #428bca;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #cdddeb;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #cdddeb;
+}
+.navbar-default .navbar-link {
+  color: #cdddeb;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #cdddeb;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #428bca;
+  }
+}
+
+body {
+  margin-top: 20px;
+  padding-top: 20px;
+	background: #E9F5FF;
+}
+
 #body {
 	background:white;
 	padding: 20px;
-	border-radius: 10px;
+  padding-top: 25px;
+  border-radius: 5px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -54,15 +130,6 @@ footer {
     display: table-cell;
     vertical-align: middle;
 }
-
-/*
-.blog-list > li > a{
-    color: black;
-}
-.blog-list > li > a:hover {
-    color: gray;
-}
-*/
 
 .blog-panel-body {
 	background: #FBFBFB;

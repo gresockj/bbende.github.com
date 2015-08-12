@@ -41,7 +41,7 @@ theme :
               </a>
           </div>
           <div class="col-xs-2 col-md-2">
-              <a href="{{ BASE_PATH }}/atom.xml">
+              <a href="{{ BASE_PATH }}/rss.xml">
                   <img src="{{ ASSET_PATH }}/resources/social_icons/rss.png" class="img-responsive" />
               </a>
           </div>
