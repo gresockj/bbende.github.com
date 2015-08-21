@@ -102,6 +102,7 @@ body {
   margin-top: 20px;
   padding-top: 20px;
 	background: #E9F5FF;
+  font-family: 'Roboto', sans-serif;
 }
 
 #body {
@@ -109,7 +110,7 @@ body {
 	padding: 20px;
   padding-top: 25px;
   border-radius: 5px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .content {
@@ -119,6 +120,7 @@ body {
 
 pre, code {
     font-size: 12px;
+    font-family: 'Roboto Mono', ;
     line-height: 1.5;
 }
 
@@ -129,9 +131,9 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #333;
+  font-family: 'Roboto', sans-serif;
 }
 
 hr {
@@ -156,6 +158,30 @@ footer {
 }
 
 .fixed-button {
-    min-width: 80px;
-
+  min-width: 80px;
 }
+
+/* Jumbotron with image
+.jumbotron {
+  background-image: url(/code-background.png);
+  background-size: cover;
+  height: 100%;
+}
+*/
+
+/* tag cloud */
+.tag-cloud-0 { font-size: 1em; }
+.tag-cloud-1 { font-size: 1.5em; }
+.tag-cloud-2 { font-size: 1.5em; font-weight: bold; }
+.tag-cloud-3 { font-size: 2em; }
+.tag-cloud-4 { font-size: 2em; font-weight: bold; }
+.tag-cloud-5 { font-size: 2.5em; }
+.tag-cloud-6 { font-size: 2.5em; font-weight: bold; }
+.tag-cloud-7 { font-size: 2.75em; }
+.tag-cloud-8 { font-size: 2.75em; font-weight: bold; }
+.tag-cloud-9 { font-size: 2.75em;
+  font-weight: bold;
+  font-style: italic;
+}
+.tag-cloud-10 { font-size: 3em; }
+/* end tag cloud */
