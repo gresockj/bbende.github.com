@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-12">
+      <div class="col-md-12">
         <ul class="list-inline" style="margin-top: 10px; margin-bottom: 0px">
           <li>
             <a href="https://twitter.com/{{ site.author.twitter }}">
