@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+          <div class="panel-heading">
+              <h4 class="panel-title">Categories</h4>
+          </div>
+    {% assign categories_max = 0 %}
+    {% for category in site.categories %}
+        {% if category[1].size > categories_max %}
+            {% assign categories_max = category[1].size %}
+        {% endif %}
+    {% endfor %}
+    <ul class="list-group blog-list">
+    {% for i in (1..categories_max) reversed %}
+        {% for category in site.categories %}
+            {% if category[1].size == i %}
+            <li class="list-group-item">
+          <a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">
+            {{ category[0] | join: "/" | capitalize }} <span class="badge alert-info pull-right">{{ category[1].size }}</span>
+          </a></li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</div>

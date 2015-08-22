@@ -1,0 +1,52 @@
+<!-- Start info panel -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-10 col-md-10">
+        <h4 class="panel-title"><b>{{ site.author.name }}</b></h4>
+      </div>
+    </div>
+  </div> <!-- end panel-heading -->
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-3 col-md-4">
+          <img src="{{ BASE_PATH }}/self_photo_3.jpg" class="img-responsive img-rounded">
+      </div>
+      <div class="col-xs-9 col-md-8">
+         <p>Software developer interested in Java, big-data, and open-source development</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <ul class="list-inline" style="margin-top: 10px; margin-bottom: 0px">
+          <li>
+            <a href="https://twitter.com/{{ site.author.twitter }}">
+              <img src="{{ ASSET_PATH }}/resources/social_icons_small/twitter.png" class="img-responsive" />
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/{{ site.author.github }}">
+              <img src="{{ ASSET_PATH }}/resources/social_icons_small/github.png" class="img-responsive" />
+            </a>
+          </li>
+          <li>
+            <a href="http://www.linkedin.com/pub/bryan-bende/7/76/600">
+              <img src="{{ ASSET_PATH }}/resources/social_icons_small/linkedin.png" class="img-responsive" />
+            </a>
+          </li>
+          <li>
+            <a href="http://www.slideshare.net/BryanBende/presentations">
+              <img src="{{ ASSET_PATH }}/resources/social_icons_small/slideshare.png" class="img-responsive" />
+            </a>
+          </li>
+          <li>
+            <a href="{{ BASE_PATH }}/atom.xml">
+              <img src="{{ ASSET_PATH }}/resources/social_icons_small/rss.png" class="img-responsive" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end panel-body -->
+</div>
+<!-- End info panel -->
