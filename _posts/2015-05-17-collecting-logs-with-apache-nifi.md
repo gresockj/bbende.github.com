@@ -7,22 +7,22 @@ tags: [NiFi,Solr,Banana]
 ---
 {% include JB/setup %}
 
-It is almost impossible to monitor a large system without aggregating logs and providing a dashboard of visualizations. 
-Many tools and technologies have been created to tackle this problem. Some of the 
+It is almost impossible to monitor a large system without aggregating logs and providing a dashboard of visualizations.
+Many tools and technologies have been created to tackle this problem. Some of the
 most common open-source approaches to large-scale log aggregation are:
 
 * ElasticSearch + LogStash + Kibana, or ELK for short
 * Flume (using MorphlineSolrSink) + Solr + Hue or Banana
 * Graylog2 (GELF, Graylog Server, Graylog Web UI)
 
-The remainder of this post will show how to integrate Apache NiFi, Apache Solr, and Banana to create a system for 
+The remainder of this post will show how to integrate Apache NiFi, Apache Solr, and Banana to create a system for
 collecting logs. The following diagram shows how the components of the system will interact:
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/01-log-aggregation-architecture.png" class="img-responsive">
 
 ### Solr Setup
 
-* Download the latest [Apache Solr release](http://lucene.apache.org/solr/downloads.html) (at this time the latest 
+* Download the latest [Apache Solr release](http://lucene.apache.org/solr/downloads.html) (at this time the latest
 release is 5.1.0)
 
 * Extract the Solr distribution and start the cloud example:
@@ -30,17 +30,17 @@ release is 5.1.0)
         tar xzf solr-5.1.0.tgz
         cd solr-5.1.0
         bin/solr start -e cloud -noprompt
-        
-* Open [http://localhost:8983/solr/#/~cloud](http://localhost:8983/solr/#/~cloud) in a browser and verify 
+
+* Open [http://localhost:8983/solr/#/~cloud](http://localhost:8983/solr/#/~cloud) in a browser and verify
 the "gettingstarted" collection is up and running
 
 ### Banana Setup
 
 * Clone Banana from GitHub and copy the src directory to Solr's webapp directory
-        
+
         git clone https://github.com/LucidWorks/banana.git
         cp -R banana <PATH_TO_SOLR>/solr-5.1.0/server/solr-webapp/webapp/
-        
+
 * Browse to [http://localhost:8983/solr/banana/src/index.html#/dashboard](http://localhost:8983/solr/banana/src/index.html#/dashboard)
 
 * Use the "Configure Dashboard" icon in the top right to change the Solr collection to "gettingstarted"
@@ -49,7 +49,7 @@ the "gettingstarted" collection is up and running
 
 ### NiFi Setup
 
-Note: This is based off the NiFi develop branch at the time of writing this, as there are some features not yet 
+Note: This is based off the NiFi develop branch at the time of writing this, as there are some features not yet
 available in a released version that we need to make use of.
 
 * Clone the following repository:
@@ -59,7 +59,7 @@ available in a released version that we need to make use of.
         git checkout develop
 
 * From here, follow the [NiFi Quickstart](https://nifi.incubator.apache.org/development/quickstart.html) for building and running NiFi
- 
+
 * Once NiFi is running, create a simple flow with three processors: ListenUDP, MergeContent, PutSolrContentStream
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/02-udp-merge-solr.png" class="img-responsive">
@@ -77,7 +77,12 @@ Configure the processors as follows:
   * Set the Minimum Number of Entries to 10
   * Set the Maximum Number of Entries to 100
   * Set the Max Bin Age to 10 seconds
-  * Auto-terminate the failure and original relationships 
+  * Auto-terminate the failure and original relationships
+
+    
+  *Update: As of NiFi 0.2.0 and later, MergeContent has a property called 'Delimeter Strategy' which
+  defaults to 'Filename'. If 'Delimeter Strategy' is set to 'Text', then the values ([ , ]) can be plugged
+  directly into the corresponding properties of Header, Delimeter, and Footer.*  
 
 * **PutSolrContentStream**
   * Set the Solr Type to Cloud
@@ -88,7 +93,7 @@ Configure the processors as follows:
 
 ### Producing Logs
 
-To produce logs I created a simple Maven project which uses slf4j+log4j, with a UDP appender, and a logstash JSON 
+To produce logs I created a simple Maven project which uses slf4j+log4j, with a UDP appender, and a logstash JSON
 layout. The log4j.properties file looks like the following:
 
     log4j.appender.stdout=org.apache.log4j.ConsoleAppender
@@ -111,14 +116,14 @@ To run this logger, do the following:
     mvn clean package
     java -jar target/jsonevent-producer-1.0-SNAPSHOT.jar <NUM_LOGS> <DELAY_IN_MILLIS>
 
-At this point you should be able to check your Banana dashboard and start seeing events (assuming you have 
+At this point you should be able to check your Banana dashboard and start seeing events (assuming you have
 auto-refresh selected):
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/03-banana-logs.png" class="img-responsive">
 
 ### Summary
 
-With a small amount of configuration, and no coding, a simple system for collecting logs can be created. Several approaches 
+With a small amount of configuration, and no coding, a simple system for collecting logs can be created. Several approaches
 could be taken to integrating this into a larger system:
 
 * All nodes in the system could send logs directly to a central NiFi instance over UDP
@@ -129,10 +134,10 @@ could be taken to integrating this into a larger system:
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/05-Local-NiFi.png" class="img-responsive">
 
-* Each node producing logs could run a local NiFi instance that sends logs to a central instance, which then merges 
+* Each node producing logs could run a local NiFi instance that sends logs to a central instance, which then merges
 the logs and adds them to Solr
 
 <img src="{{ BASE_PATH }}/assets/images/log-aggregation/06-Local-Central-NiFi.png" class="img-responsive">
 
-In addition some tuning of the MergeContent processor could be done to achieve the best throughput for adding 
+In addition some tuning of the MergeContent processor could be done to achieve the best throughput for adding
 documents to Solr, and alternatives to UDP could be integrated.
