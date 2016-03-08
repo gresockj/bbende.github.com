@@ -19,7 +19,7 @@ theme :
         <ul class="list-group blog-list">
         {% for post in site.posts offset: 0 limit: 5  %}
             <li class="list-group-item">
-              <h3>{{ post.title }}</h3>
+              <h4>{{ post.title }}</h4>
               <span><b>{{ post.date | date_to_string }}</b></span> -
               {{ post.content | strip_html | truncatewords:30}}<br/>
               <a href="{{ post.url }}">Read More »</a>
@@ -27,6 +27,7 @@ theme :
          {% endfor %}
           </ul>
     </div>
+
   </div>
 
   <div class="col-md-4">
