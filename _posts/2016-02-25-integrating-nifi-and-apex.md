@@ -7,4 +7,4 @@ tags: [NiFi,Apex]
 ---
 {% include JB/setup %}
 
-View this presentation on SlideShare - [SlideShare](http://www.slideshare.net/BryanBende/integrating-nifi-and-apex).
+View this presentation on [SlideShare](http://www.slideshare.net/BryanBende/integrating-nifi-and-apex).
