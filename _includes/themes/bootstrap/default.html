@@ -13,7 +13,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
-    
+
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
     <![endif]-->
@@ -44,27 +44,22 @@
                 <ul id="nav-list" class="nav navbar-nav">
                   <li {% if current[1] == 'index.html' %}class='active'{% endif %} >
                       <a href="{{ HOME_PATH }}" {% if current[1] == 'index.html' %}class='active'{% endif %} >
-                          <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                          Home
                       </a>
                   </li>
                     <li {% if current[1] == 'archive.html' %}class='active'{% endif %} >
                         <a href="{{ BASE_PATH }}/archive.html" {% if current[1] == 'archive.html' %}class='active'{% endif %} >
-                            <span class="glyphicon glyphicon-list"></span> &nbsp;Archive
+                            Archive
                         </a>
                     </li>
                     <li {% if current[1] == 'categories.html' %}class='active'{% endif %} >
                         <a href="{{ BASE_PATH }}/categories.html" {% if current[1] == 'categories.html' %}class='active'{% endif %} >
-                            <span class="glyphicon glyphicon-folder-open"></span> &nbsp;Categories
+                            Categories
                         </a>
                     </li>
                     <li {% if current[1] == 'tags.html' %}class='active'{% endif %}>
                         <a href="{{ BASE_PATH }}/tags.html" {% if current[1] == 'tags.html' %}class='active'{% endif %}>
-                            <span class="glyphicon glyphicon-tag"> </span> &nbsp;Tags
-                        </a>
-                    </li>
-                    <li {% if current[1] == 'pages.html' %}class='active'{% endif %}>
-                        <a href="{{ BASE_PATH }}/pages.html" {% if current[1] == 'pages.html' %}class='active'{% endif %}>
-                            <span class="glyphicon glyphicon-file"> </span> &nbsp;Pages
+                            Tags
                         </a>
                     </li>
 	            </ul>

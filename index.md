@@ -12,21 +12,19 @@ theme :
 <div class="row">
   <div class="col-md-8">
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title"><b>Recent Posts</b></h2>
-        </div>
-        <ul class="list-group blog-list">
-        {% for post in site.posts offset: 0 limit: 5  %}
-            <li class="list-group-item">
-              <h4>{{ post.title }}</h4>
-              <span><b>{{ post.date | date_to_string }}</b></span> -
-              {{ post.content | strip_html | truncatewords:30}}<br/>
-              <a href="{{ post.url }}">Read More »</a>
-          </li>
-         {% endfor %}
-          </ul>
-    </div>
+  <hr/>
+  {% for post in site.posts offset: 0 limit: 5  %}
+      <div class="post-preview">
+        <a href="{{ post.url }}">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <h3 class="post-subtitle">
+              {{ post.content | strip_html | truncatewords:10}}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+      </div>
+      <hr/>
+   {% endfor %}
 
   </div>
 

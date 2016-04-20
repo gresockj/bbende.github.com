@@ -17,6 +17,13 @@
   padding-bottom:10px;
 }
 
+.navbar.navbar-default .navbar-nav > li > a {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 14px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /**
 * Custom navbar colors:
 * http://stackoverflow.com/questions/18529274/change-navbar-color-in-twitter-bootstrap-3
@@ -108,13 +115,13 @@ body {
 #body {
 	background:white;
 	padding: 20px;
-  padding-top: 25px;
+  padding-top: 10px;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
 }
 
 .content {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
 }
 
@@ -124,16 +131,15 @@ pre, code {
     line-height: 1.5;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
-  font-weight: normal;
-  color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 
 hr {
@@ -185,3 +191,40 @@ footer {
 }
 .tag-cloud-10 { font-size: 3em; }
 /* end tag cloud */
+
+/* Style for list of posts on index */
+.post-preview > a {
+  color: #404040;
+}
+.post-preview > a:hover,
+.post-preview > a:focus {
+  text-decoration: none;
+  color: #0085a1;
+}
+.post-preview > a > .post-title {
+  font-size: 26px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.post-preview > a > .post-subtitle {
+  margin: 0;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.post-preview > .post-meta {
+  color: #808080;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.post-preview > .post-meta > a {
+  text-decoration: none;
+  color: #404040;
+}
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+  color: #0085a1;
+  text-decoration: underline;
+}
