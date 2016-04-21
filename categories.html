@@ -9,7 +9,6 @@ group: navigation
 <div class="row">
 	<div class="col-md-11">
 		{% for category in site.categories %}
-		<hr/>
 		<div>
 			<h3>
 				{{ category[0] | join: "/" | capitalize }}
@@ -21,6 +20,7 @@ group: navigation
 			</p>
 			{% endfor %}
 		</div>
+		<hr/>
 		{% endfor %}
 </div>
 </div>

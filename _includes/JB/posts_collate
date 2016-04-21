@@ -27,7 +27,6 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
 
     {% if forloop.first %}
-      <hr/>
       <h3>{{this_year}} - {{this_month}}</h3>
       <div>
     {% endif %}
@@ -35,6 +34,7 @@ Usage:
     <p><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></p>
 
     {% if forloop.last %}
+      <hr/>
       </div>
     {% else %}
       {% if this_year != next_year %}
