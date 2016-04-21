@@ -14,9 +14,9 @@ group: navigation
 			<h3>{{ tag[0] | join: "/" }}</h3>
     	{% assign pages_list = tag[1] %}
 			{% for page in pages_list %}
-				<p>
-          <a href="{{ BASE_PATH }}{{page.url}}">{{page.title}}</a> ({{ page.date | date_to_string }})
-				</p>
+				<h4>
+          <a href="{{ BASE_PATH }}{{page.url}}">{{page.title}}</a><small> ({{ page.date | date_to_string }})</small>
+				</h4>
 			{% endfor %}
 		</div>
 		<hr/>
