@@ -10,8 +10,25 @@ theme :
 {% include JB/setup %}
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-11">
+    <div class="well">
 
+      <div class="row">
+        <div class="col-xs-3 col-md-2">
+          <img src="{{ BASE_PATH }}/self_photo_bw.jpg" class="img-responsive img-rounded">
+        </div>
+        <div class="col-xs-9 col-md-10">
+          <h2>{{ site.author.name }}</h2>
+          <p class="post-meta">Software developer interested in Java, big-data, and open-source development / Apache NiFi PMC & Committer</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-11">
   <hr/>
   {% for post in site.posts offset: 0 limit: 5  %}
       <div class="post-preview">
@@ -25,19 +42,5 @@ theme :
       </div>
       <hr/>
    {% endfor %}
-
-  </div>
-
-  <div class="col-md-4">
-    {% include JB/personal_info %}
-    <div class="well">
-      {% include JB/tag_cloud %}
-      <div class='clear'></div>
-    </div>
-
-    <!--
-    <a class="twitter-timeline" href="https://twitter.com/BBende" data-widget-id="627527690225061888">Tweets by @BBende</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    -->
   </div>
 </div>

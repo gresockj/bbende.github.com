@@ -3,7 +3,7 @@
  */
 @media (min-width: 1200px) {
   .container {
-    width: 970px;
+    width: 800px;
   }
 }
 
@@ -30,47 +30,54 @@
 * http://work.smarchal.com/twbscolor/
 */
 .navbar-default {
-  background-color: #428bca;
-  border-color: #428bca;
+  background-color: #404040;
+  border-color: #404040;
 }
 .navbar-default .navbar-brand {
-  color: #cdddeb;
+  color: #e5e8e8;
 }
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
   color: #ffffff;
 }
 .navbar-default .navbar-text {
-  color: #cdddeb;
+  color: #e5e8e8;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #cdddeb;
+  color: #e5e8e8;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;
 }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #404040;
 }
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #404040;
 }
 .navbar-default .navbar-toggle {
-  border-color: #428bca;
+  border-color: #404040;
 }
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #428bca;
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #404040;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #cdddeb;
+  background-color: #e5e8e8;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #cdddeb;
+  border-color: #e5e8e8;
 }
 .navbar-default .navbar-link {
-  color: #cdddeb;
+  color: #e5e8e8;
 }
 .navbar-default .navbar-link:hover {
   color: #ffffff;
@@ -78,18 +85,21 @@
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #cdddeb;
+    color: #e5e8e8;
   }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
   }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
-    background-color: #428bca;
+    background-color: #404040;
   }
 }
 
-/* Adds the carrot under the active page
+/* Adds the carrot under the active page */
 .navbar-default .navbar-nav > .active > a:after {
   position: absolute;
   bottom: 0;
@@ -103,12 +113,10 @@
   border-bottom: 5px solid;
   border-left: 5px solid transparent;
 }
-*/
 
 body {
   margin-top: 20px;
   padding-top: 20px;
-	background: #E9F5FF;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -126,7 +134,7 @@ body {
 }
 
 pre, code {
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Roboto Mono', ;
     line-height: 1.5;
 }
@@ -139,7 +147,7 @@ h5,
 h6 {
   margin-top: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 hr {
@@ -212,7 +220,7 @@ footer {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.post-preview > .post-meta {
+.post-meta {
   color: #808080;
   font-size: 18px;
   font-style: italic;

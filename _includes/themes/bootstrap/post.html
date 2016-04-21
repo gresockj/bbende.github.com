@@ -1,31 +1,19 @@
 {% include JB/setup %}
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-11">
       <article>
-          <h2 style="margin-top:5px;">{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h2>
-          <div class="row">
-              <div class="group1 col-md-10">
-            <ul class="list-inline">
-              <li><span class="glyphicon glyphicon-time"></span> <span>{{ page.date | date_to_long_string }}</span> </li>
-              {% unless page.categories == empty %}
-                <li><span class="glyphicon glyphicon-folder-open"></span></li>
-                {% for category in page.categories %}
-                <li>{{ category | capitalize }}</li>
-                    {% endfor %}
-                {% endunless %}
-              {% unless page.tags == empty %}
-                <li><span class="glyphicon glyphicon-tag"></span></li>
-                {% for tag in page.tags %}
-                <li>{{ tag }}</li>
-                    {% endfor %}
-                {% endunless %}
-                  </ul>
-              </div>
-              <div class="col-md-2">
-                  <a href="https://twitter.com/share" class="twitter-share-button" data-via="BBende">Tweet</a>
-                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-              </div>
+        <h2 style="margin-top:5px;">{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h2>
+        <div class="row">
+            <div class="group1 col-md-10">
+              <p class="post-meta">
+                Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}
+              </p>
+            </div>
+            <div class="col-md-2">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-via="BBende">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
           </div>
           <div class="row">
               <div class="col-md-12">
@@ -39,26 +27,4 @@
           </div>
       </article>
   </div>
-  <!-- Start sidebar -->
-  <div class="col-md-4">
-    {% include JB/personal_info %}
-    <div class="well">
-      {% include JB/tag_cloud %}
-      <div class='clear'></div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-          <h4 class="panel-title">Latest Posts</h4>
-      </div>
-      <ul class="list-group blog-list">
-      {% for post in site.posts offset: 0 limit: 5  %}
-          <li class="list-group-item">
-                       <!-- <span>{{ post.date | date_to_string }}</span> &raquo; -->
-                        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-      </ul>
-    </div>
-  </div>
-  <!-- End sidebar -->
 </div>
