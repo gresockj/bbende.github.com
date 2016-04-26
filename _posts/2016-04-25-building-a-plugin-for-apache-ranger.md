@@ -154,13 +154,13 @@ two configuration files to be on the classpath:
 * ranger-yourservice-security.xml
 * ranger-yourservice-audit.xml
 
-Examples of these files can be found the Ranger code.
+Examples of these files can be found in the Ranger code.
 
 ### Auditing
 
 Auditing is performed by the ResultProcessor used by the RangerBasePlugin. A default result processor can
 be set on the base plugin, or a result processor can be passed as a parameter to the isAccessAllowed method.
-The default result processor to perform auditing is RangerDefaultAuditHandler. If no result processor is
+The standard result processor that performs auditing is RangerDefaultAuditHandler. If no result processor is
 specified, then no auditing will be performed.
 
 The destination of the audit information is specified in the audit XML config file described above. The configuration
@@ -181,4 +181,5 @@ required to send audit logs to Solr is the following:
       <value>http://localhost:6083/solr/ranger_audits</value>
     </property>
 
-Information on setting up Solr for Ranger can be found in [security-admin/contrib/solr_for_audit_setup](https://github.com/apache/incubator-ranger/tree/master/security-admin/contrib/solr_for_audit_setup).
+Information on setting up Solr for Ranger can be found in [security-admin/contrib/solr_for_audit_setup](https://github.com/apache/incubator-ranger/tree/master/security-admin/contrib/solr_for_audit_setup). For an easy way to run Ranger and Solr locally, this [Vagrant project](https://github.com/bbende/apache-ranger-vagrant) can be
+used.
