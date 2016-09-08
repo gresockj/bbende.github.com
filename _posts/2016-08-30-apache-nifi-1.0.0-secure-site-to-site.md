@@ -66,7 +66,7 @@ In nifi-1 lets create a Remote Process Group (RPG) and point it at the URL of ni
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-secure-site-to-site/02-nifi-1-rpg-forbidden.png" class="img-thumbnail">
 
-NOTE: I am running nifi-2 on port 9445, and nifi-2 on port 9446.
+NOTE: I am running nifi-1 on port 9445, and nifi-2 on port 9446.
 
 We can see a warning on the RPG that says "forbidden". This is because nifi-1 is attempting to make a request to
 nifi-2 to retrieve site-to-site information, such as which ports are available and what protocol to use, but nifi-2
