@@ -62,7 +62,7 @@ Lets create a simple flow on nifi-2 with an Input Port followed by a LogAttribut
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-secure-site-to-site/01-nifi-2-flow.png" class="img-thumbnail">
 
-In nifi-2 lets create a Remote Process Group (RPG) and point it at the URL of nifi-2:
+In nifi-1 lets create a Remote Process Group (RPG) and point it at the URL of nifi-2:
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-secure-site-to-site/02-nifi-1-rpg-forbidden.png" class="img-thumbnail">
 
