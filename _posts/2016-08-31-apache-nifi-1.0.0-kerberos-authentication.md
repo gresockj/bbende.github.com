@@ -148,11 +148,11 @@ At this point we can start NiFi:
 
     ./bin/nifi.sh start
 
-### Single Sign On
+### Kerberos Login
 
 There are two ways we can authenticate to NiFi using Kerberos:
 
-* *Single Sign On* - NiFi presents a login screen and authenticates the user against the KDC
+* *Kerberos Login* - NiFi presents a login screen and authenticates the user against the KDC
 * *SPNEGO* - A ticket that was established outside of NiFi is forwarded to NiFi through the browser
 
 If we navigate to NiFi in our browser at [https://nifi.apache.org:9445/nifi](https://nifi.apache.org:9445/nifi), assuming
