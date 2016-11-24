@@ -85,7 +85,7 @@ theme :
 <div class="row">
   <div class="col-md-11">
   <hr/>
-  {% for post in site.posts offset: 0 limit: 5  %}
+  {% for post in site.posts offset: 0 limit: 6  %}
       <div class="post-preview">
         <a href="{{ post.url }}">
           <h2 class="post-title">{{ post.title }}</h2>
