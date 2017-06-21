@@ -84,12 +84,12 @@ for the Schema Access Strategy and obtaining a schema from a registry.
 ### Record Processors
 
 Now that we have readers, writers, and schema registries, it becomes straight-forward to provide a series of generic
-processors to handle records. By treating flow files as records, we can ty[ically avoid the need to split the content
+processors to handle records. By treating flow files as records, we can typically avoid the need to split the content
 of a flow file into many smaller flow files just for the sake of manipulating the data. This has the benefit of reducing
 the amount of updates to the flow file repository, reducing the number of provenance events generated, and reducing overall
 garbage collection, all of which can lead to significant performance improvements.
 
-This list will likely be expanding over time, but at the time of writing this, the following record-related processors exists:
+This list will likely be expanding over time, but at the time of writing this, the following record-related processors exist:
 
 #### ConvertRecord
 
@@ -142,7 +142,7 @@ as records, and then use the configured record writer to serialize each record f
 
 ### Record Processing Example
 
-For an example, lets read a log file using a GrokReader and convert it to JSON using a JsonRecordSetWriter, and lets
+For an example, let's read a log file using a GrokReader and convert it to JSON using a JsonRecordSetWriter, and lets
 demonstrate how to interact with the Hortonworks Schema Registry.
 
 * Download the source for latest registry release, currently 0.2.1
