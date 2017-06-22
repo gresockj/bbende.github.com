@@ -145,18 +145,15 @@ as records, and then use the configured record writer to serialize each record f
 For an example, let's read a log file using a GrokReader and convert it to JSON using a JsonRecordSetWriter, and lets
 demonstrate how to interact with the Hortonworks Schema Registry.
 
-* Download the source for latest registry release, currently 0.2.1
+* Download the latest registry release, currently 0.2.1
 
-    [https://github.com/hortonworks/registry/archive/v0.2.1.tar.gz](https://github.com/hortonworks/registry/archive/v0.2.1.tar.gz)
+    [hortonworks-registry-0.2.1.tar.gz](https://github.com/hortonworks/registry/releases/download/v0.2.1/hortonworks-registry-0.2.1.tar.gz)
 
 * Extract the tar, build, and start the registry application
 
-      tar xzvf v0.2.1.tar.gz
+      tar xzvf hortonworks-registry-0.2.1.tar.gz
       cd registry-0.2.1
-      mvn clean package
-      cd registry-dist/target
-      tar xzvf hortonworks-registry-0.3.0-SNAPSHOT.tar.gz
-      cd hortonworks-registry-0.3.0-SNAPSHOT
+      cd hortonworks-registry-0.2.1
       ./bin/registry-server-start.sh conf/registry-dev.yaml
 
 * Navigate to the registry UI in your browser
