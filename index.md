@@ -20,10 +20,10 @@ theme :
         <div class="col-xs-9 col-md-10">
 
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
               <h2>{{ site.author.name }}</h2>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
               <ul class="list-inline">
                 <li>
                     <a href="{{ BASE_PATH }}/atom.xml" class="social-link">
@@ -64,6 +64,14 @@ theme :
                             <i class="fa fa-slideshare fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
+                </li>
+                <li>
+                  <a href="https://keybase.io/bbende" class="social-link">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-key fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
                 </li>
               </ul>
             </div>
