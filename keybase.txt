@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/bbende
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bryanbende.com
+  * I am bbende (https://keybase.io/bbende) on keybase.
+  * I have a public key ASBEYyj-94gJWuC5mba-LiO96uYiNUtbsr8nCb5kIbZAWAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120446328fef788095ae0b999b6be2e23bdeae622354b5bb2bf2709be6421b640580a",
+      "host": "keybase.io",
+      "kid": "0120446328fef788095ae0b999b6be2e23bdeae622354b5bb2bf2709be6421b640580a",
+      "uid": "6b39069a2a159c9fe6f2edc19bfec419",
+      "username": "bbende"
+    },
+    "merkle_root": {
+      "ctime": 1504388484,
+      "hash": "0c7df39db5f5805872fdb1fb81dd3f75f108c1c04859f76aa1e6bdb8386ab50a069b36e16f182ab6445e53ba4a7e46609fe37675cff42e919ed9277fefb99417",
+      "hash_meta": "89ed7581700f9ac65ce979fc477596228a887c5fd99fdb7879fd5e7322c49ece",
+      "seqno": 1363913
+    },
+    "service": {
+      "hostname": "bryanbende.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.28"
+  },
+  "ctime": 1504388495,
+  "expire_in": 504576000,
+  "prev": "db24a36a5b46f2f77134c81ef2ab61c94eabcbaceb6e211c26ea7d8bd5928167",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgRGMo/veICVrguZm2vi4jvermIjVLW7K/Jwm+ZCG2QFgKp3BheWxvYWTFA0V7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNDQ2MzI4ZmVmNzg4MDk1YWUwYjk5OWI2YmUyZTIzYmRlYWU2MjIzNTRiNWJiMmJmMjcwOWJlNjQyMWI2NDA1ODBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNDQ2MzI4ZmVmNzg4MDk1YWUwYjk5OWI2YmUyZTIzYmRlYWU2MjIzNTRiNWJiMmJmMjcwOWJlNjQyMWI2NDA1ODBhIiwidWlkIjoiNmIzOTA2OWEyYTE1OWM5ZmU2ZjJlZGMxOWJmZWM0MTkiLCJ1c2VybmFtZSI6ImJiZW5kZSJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwNDM4ODQ4NCwiaGFzaCI6IjBjN2RmMzlkYjVmNTgwNTg3MmZkYjFmYjgxZGQzZjc1ZjEwOGMxYzA0ODU5Zjc2YWExZTZiZGI4Mzg2YWI1MGEwNjliMzZlMTZmMTgyYWI2NDQ1ZTUzYmE0YTdlNDY2MDlmZTM3Njc1Y2ZmNDJlOTE5ZWQ5Mjc3ZmVmYjk5NDE3IiwiaGFzaF9tZXRhIjoiODllZDc1ODE3MDBmOWFjNjVjZTk3OWZjNDc3NTk2MjI4YTg4N2M1ZmQ5OWZkYjc4NzlmZDVlNzMyMmM0OWVjZSIsInNlcW5vIjoxMzYzOTEzfSwic2VydmljZSI6eyJob3N0bmFtZSI6ImJyeWFuYmVuZGUuY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjgifSwiY3RpbWUiOjE1MDQzODg0OTUsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiZGIyNGEzNmE1YjQ2ZjJmNzcxMzRjODFlZjJhYjYxYzk0ZWFiY2JhY2ViNmUyMTFjMjZlYTdkOGJkNTkyODE2NyIsInNlcW5vIjoxMywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEBYrTpgc+N4TMBLRhF1kN2D0oWtKvYeRRZoqMe6F4I9MrJqVvfAMmUzf0FlLHuB7pI5Lhp0+NPePesMzPuQSMUIqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgadQUXF+m29O4ZqnPOc1GF3iTW+t34yz26dhIdW59oWWjdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bbende
+
+==================================================================
