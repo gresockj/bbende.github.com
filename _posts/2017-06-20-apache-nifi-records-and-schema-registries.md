@@ -152,7 +152,6 @@ demonstrate how to interact with the Hortonworks Schema Registry.
 * Extract the tar, build, and start the registry application
 
       tar xzvf hortonworks-registry-0.2.1.tar.gz
-      cd registry-0.2.1
       cd hortonworks-registry-0.2.1
       ./bin/registry-server-start.sh conf/registry-dev.yaml
 
