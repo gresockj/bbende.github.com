@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Distribution Patterns with Apache NiFi"
+title: "Apache NiFi - Data Distribution Patterns"
 description: ""
 category: "Development"
 tags: [NiFi]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Getting Syslog Events to HBase with NiFi"
+title: "Apache NiFi - Getting Syslog Events to HBase"
 description: ""
 category: "Development"
 tags: [NiFi,Syslog,HBase]

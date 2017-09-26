@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Optimizing Performance of Apache NiFi's Network Listening Processors"
+title: "Apache NiFi - Optimizing Performance of Network Listening Processors"
 description: ""
 category: "Development"
 tags: [NiFi, Performance, Networking]

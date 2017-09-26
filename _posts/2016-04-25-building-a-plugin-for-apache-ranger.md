@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a Plugin for Apache Ranger"
+title: "Apache Ranger - Building a Plugin"
 description: ""
 category: "Development"
 tags: [Ranger, Hadoop]

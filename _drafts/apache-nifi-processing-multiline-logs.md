@@ -9,44 +9,42 @@ tags: [NiFi, Logs]
 
 A popular use-case for Apache NiFi has been receiving and processing log messages from a variety of data sources. There are
 many different ways of getting logs into NiFi, but the most common approach is via one of the network listener processors,
-such as ListenTCP, ListenUDP, or ListenSyslog. For some background on how these processors work, you can read this [previous post](https://bryanbende.com/development/2016/05/09/optimizing-performance-of-apache-nifis-network-listening-processors).
+such as ListenTCP, ListenUDP, or ListenSyslog. For some background on how these processors work, you can [read this](https://bryanbende.com/development/2016/05/09/optimizing-performance-of-apache-nifis-network-listening-processors).
 
-One of the limitations around ListenTCP, or ListenSyslog in TCP mode, has been the inability to handle multi-line log
+One of the limitations around ListenTCP (or ListenSyslog in TCP mode) has been the inability to handle multi-line log
 messages. These processors currently use a new-line character to determine logical message boundaries, but this doesn't
 work well when a new-line is part of the message and not meant to be a delimiter. For example, when receiving a Java
 stack-trace there will be many new-lines, but the whole stack-trace is intended to be a single message.
 
-A possible solution to this problem is to put the log messages into a structured format, such as JSON, and then escape
-the new-lines. There are several plugins/formats/layouts for most popular logging libraries that help with this, but if
-the source isn't already producing the data in this manner, then it means changing something at the source which isn't
-always possible.
+One solution to this problem is to put the log messages into a structured format, such as JSON, and then escape
+the new-lines. There are several plugins/formats for the most popular logging libraries that help with this, but
+sometimes we can't change the source and are stuck with however it is already producing data.
 
-With the introduction of the Apache NiFi's record-oriented processors, one of the provided record readers was a GrokReader
-which could apply a grok expression agains the contents of a flow file in order to separate the content into records. The
-[additional details documentation](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-record-serialization-services-nar/1.3.0/org.apache.nifi.grok.GrokReader/additionalDetails.html) of the GrokReader shows some examples of how to process logs with stack-traces coming
+The Apache NiFi record capabilities introduced a GrokReader for applying a grok expression against the contents of a
+flow file, in order to interpret the content as a series of records. The
+[additional details page](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-record-serialization-services-nar/1.3.0/org.apache.nifi.grok.GrokReader/additionalDetails.html) of the GrokReader shows how to process logs with stack-traces coming
 from NiFi itself.
 
 The GrokReader is powerful, but using it in a record-oriented processor assumes that you already have a flow file with
-log data, which may be the case for some situations, but in other cases, the problem might be how to get the
-log data into a flow file in the first place...
+log data. In some situations this may be fine, but in other cases, the problem might be how to get the log data into a
+flow file in the first place...
 
 *ENTER ListenTCPRecord...*
 
 ### ListenTCPRecord
 
-In the NiFi 1.4.0 release there is a new ListenTCPRecord processor. This processor starts a standard Java ServerSocket, and
-upon accepting a connection, the input stream of the connected socket is passed directly to a record reader.
+In the NiFi 1.4.0 release there is a new ListenTCPRecord processor. This processor starts a standard Java ServerSocket
+to listen for incoming connections. Upon accepting a connection, the input stream of the connected socket is passed
+directly to a record reader.
 
 *What does this mean?*
 
 **No more interpreting our data using a new-line as the hard-coded delimiter!**
 
-We can now interpret the incoming data using any of the available record readers... If the client is going to send an array of
-JSON documents then we can use a JsonTreeReader, if the client is going to send CSV data then we can use a CSVReader, and
-if the client is going to stream unstructured text, such as log data, then we can use a GrokReader.
+We can now interpret the incoming data using any of the available record readers, which means we can now process a
+stream of unstructured text (i.e. logs) using the GrokReader.
 
-Let's use the example mentioned earlier from the additional details documentation of the GrokReader and show how that
-would work with ListenTCPRecord...
+Let's take the example from the additional details page of the GrokReader and show how that would work with ListenTCPRecord...
 
 ### GrokReader Example
 
@@ -65,7 +63,7 @@ would work with ListenTCPRecord...
         ]
       }
 
-* Create an AvroSchemaRegistry with the nifi_logs schema:
+* Create an AvroSchemaRegistry service with the nifi_logs schema:
 
     <img src="{{ BASE_PATH }}/assets/images/nifi-multiline-logs/01-define-schema.png" class="img-responsive img-thumbnail">
 
@@ -137,7 +135,7 @@ correctly read by the GrokReader as three separate records, and then written out
 
 Leveraging the existing record readers provides a powerful alternative to the traditional network listening processors.
 
-In addition to ListenTCPRecord, there is also a corresponding ListenUDPRecord. Since UDP is connection-less we don't have
+In addition to ListenTCPRecord, there is the ListenUDPRecord counterpart. Since UDP is connection-less we don't have
 an input stream to read from, but we can still treat each UDP datagram as if it were its own mini input stream, and attempt
 to read records from the bytes of the datagram.
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apache NiFi 1.2.0 - Component Versioning"
+title: "Apache NiFi - Component Versioning"
 description: ""
 category: "Development"
 tags: [NiFi]

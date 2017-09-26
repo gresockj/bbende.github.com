@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Integrating NiFi and Apex"
+title: "Apache NiFi - Integrating with Apex"
 description: ""
 category: "Development"
 tags: [NiFi,Apex]

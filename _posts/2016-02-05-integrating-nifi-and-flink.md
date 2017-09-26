@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Integrating NiFi and Flink"
+title: "Apache NiFi - Integrating with Flink"
 description: ""
 category: "Development"
 tags: [NiFi,Flink]

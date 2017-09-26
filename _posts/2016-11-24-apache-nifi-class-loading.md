@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apache NiFi Class Loading"
+title: "Apache NiFi - Class Loading"
 description: ""
 category: "Development"
 tags: [NiFi, Java]
