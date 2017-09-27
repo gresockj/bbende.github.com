@@ -170,8 +170,11 @@ authenticated and see the NiFi UI:
 
 ### SPNEGO
 
-Using SPNEGO requires some extra configuration in your browser. I am using Firefox which requires going to the about:config
-page and setting the following properties:
+Using SPNEGO requires some extra configuration in your browser.
+
+#### Firefox
+
+Using Firefox requires going to the about:config page and setting the following properties:
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-kerberos/03-firefox-config.png" class="img-thumbnail">
 
@@ -183,3 +186,13 @@ see a ticket for your user principal then you need to perform a kinit:
     kinit bbende@NIFI.APACHE.ORG
 
 You should then be able to go to the NiFi UI in your browser without requiring a login.
+
+#### Chrome
+
+Using Chrome you can perform similar steps to configure it. From the terminal where you performed the kinit, run
+the following commands:
+
+    defaults write com.google.Chrome AuthServerWhitelist "nifi.apache.org"
+    defaults write com.google.Chrome AuthNegotiateDelegateWhitelist "nifi.apache.org"
+
+You can verify the policies were set by opening Chrome and entering chrome://policy in the address bar.
