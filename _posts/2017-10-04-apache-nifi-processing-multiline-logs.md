@@ -30,7 +30,7 @@ ListenTCPRecord starts a standard Java ServerSocket to listen for incoming TCP c
 We are no longer stuck using a new-line as the delimiter! We can now interpret the incoming data using any of the available record readers, which means we can process a stream of unstructured text (i.e. logs) using the GrokReader.
 
 The GrokReader was introduced in the 1.2.0 release, and applies a grok expression to interpret the content of a flow file as a series of records. The
-[additional details page](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-record-serialization-services-nar/1.3.0/org.apache.nifi.grok.GrokReader/additionalDetails.html) shows an example of how to process logs with stack-traces coming
+[additional details page](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-record-serialization-services-nar/1.4.0/org.apache.nifi.grok.GrokReader/additionalDetails.html) shows an example of how to process logs with stack-traces coming
 from NiFi itself.
 
 Let's take that example and show how that would work with ListenTCPRecord...
