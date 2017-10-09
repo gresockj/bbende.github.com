@@ -7,19 +7,18 @@ tags: [NiFi, Redis]
 ---
 {% include JB/setup %}
 
-The 1.4.0 release of Apache NiFi adds the ability to integrate with Redis as an alternative implementation of
-the commonly used Distributed Map Cache, or as an alternative implementation of a cluster state manager (NOTE:
-ZooKeeper would still be used for managing the NiFi cluster, Redis would be used for processors that store state).
+The 1.4.0 release of Apache NiFi contains a new Distributed Map Cache (DMC) Client that interacts with Redis as the
+back-end cache implementation.
 
-The rest of this post will focus on using Redis through the Distributed Map Cache Client.
+This post will give an overview of the traditional DMC, show an example of how to use the Redis DMC Client with existing processors, and discuss how Redis can be configured for high-availability.
 
 ### Distributed Map Cache
 
-The Distributed Map Cache (DMC) Client is a controller service that can be used to interact with a cache. NiFi has
-traditionally provided the DMC Client Service, which is an implementation of the DMC Client that talks to a DMC Server.
+The Distributed Map Cache (DMC) Client is a controller service for interacting with a cache. NiFi has
+traditionally provided an implementation of the DMC Client that talks to a DMC Server.
 
-There are processors that interact directly with a DMC, such as PutDistributedMapCache and FetchDistributedMapCache, and
-there are processors that leverage the DMC behind the scenes, such as DetectDuplicate or Wait/Notify.
+There are a number of processor that make use of a cache through the DMC Client interface. Some of these processors interact with the cache directly, such as PutDistributedMapCache and FetchDistributedMapCache, and others leverage
+the cache behind the scenes, such as DetectDuplicate or Wait/Notify.
 
 In a typical NiFi cluster, the DMC Server is started on all nodes, but the DMC Client points to only one of the servers,
 which would look like this:
@@ -27,23 +26,19 @@ which would look like this:
 <img src="{{ BASE_PATH }}/assets/images/nifi-redis/01-traditional-dmc.png" class="img-responsive img-thumbnail">
 
 A benefit of the DMC Server is that it can be fully managed by NiFi and doesn't rely on any external processes or
-third-party libraries. However, a limitation is that it was not built for high-availability. If the node
-with the active server goes down, there is no fail-over to one of the other nodes, and the data in that cache server
-was only on that one node.
+third-party libraries. However, a limitation is that it was not built for high-availability. All of the cache data is in the one DMC server being used by the clients, and if that node goes down, there is no fail-over to one of the other nodes.
 
 The good news is that we can easily provide additional implementations of the DMC Client that leverage alternative
-key/value stores, without changing anything about the existing processors that use the DMC Client. This means processors
-such as PutDistributedMapCache and FetchDistributedMapCache work exactly the same.
+key/value stores. Since other components only know about the DMC Client interface, the implementation can be swapped
+out without changing those components. This means processors such as PutDistributedMapCache and FetchDistributedMapCache will work exactly the same.
 
 ### Redis DMC Client
 
-The 1.4.0 release introduces the Redis DMC Client. In this case, there is no longer a DMC Server running in NiFi.
-The setup would look like the following:
+The 1.4.0 release of NiFi introduces the Redis DMC Client. In this case, there is no longer a DMC Server running in NiFi. The setup would look like the following:
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-redis/02-redis-dmc.png" class="img-responsive img-thumbnail">
 
-We can then use the existing PutDistributedMapCache and FetchDistributedMapCache processors to interact with
-Redis.
+The following example will demonstrated how to use the existing PutDistributedMapCache and FetchDistributedMapCache processors to interact with Redis.
 
 * Start Redis
 
@@ -146,6 +141,3 @@ Unfortunately, the Redis DMC Client Service must be able to perform atomic compa
 are implemented with Redis transactions, and Redis transactions are not supported in a cluster.
 
 So for the Redis DMC Client Service we are limited to standalone Redis, or Redis Sentinel.
-
-The Redis Connection Pool Service does support connecting to a Redis Clustered, and some additional Redis specific processors
-could be implemented in the future and leverage the ability to connect to a cluster.
