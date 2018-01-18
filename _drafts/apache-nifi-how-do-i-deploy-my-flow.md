@@ -88,7 +88,7 @@ To simulate this scenario we are going to setup two NiFi instances to represent 
 
   <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/01-solr-collections.png" class="img-responsive img-thumbnail">
 
-* At this point all the applications should be up and running at the following locations:
+* All of the applications should now be up and running at the following locations:
 
   * [http://localhost:8983/solr](http://localhost:8983/solr)
   * [http://localhost:18080/nifi-registry](http://localhost:18080/nifi-registry)
@@ -97,7 +97,7 @@ To simulate this scenario we are going to setup two NiFi instances to represent 
 
 ### Development Flow
 
-To get started with the development flow, download this template and import it the first NiFi instance:
+Download the template below and import it in the development NiFi instance (port 8080):
 
 * [Solr-Ingest-User-Data.xml](https://gist.githubusercontent.com/bbende/3ab0c7a0a13f33253435fed57b8c8798/raw/9ab0453a2444e971d35168e99f5a38a04f1925f9/Solr-Ingest-User-Data.xml)
 
@@ -111,7 +111,7 @@ Going into this process group should show the following flow:
 
 NOTE: You will have to enable all of the controller services and start all of the processors to get everything running after instantiating the template.
 
-In order to process the data we are going to use some record-based processors which means we need a schema. The schema we are going to use is the following and can be seen in the AvroSchemaRegistry controller service:
+In order to process the data we are going to use some record-based processors which means we need a schema. The schema we are going to use is shown below and is defined in the AvroSchemaRegistry controller service.
 
     {
     "type": "record",
@@ -127,7 +127,7 @@ In order to process the data we are going to use some record-based processors wh
     ]
     }
 
-Notice that gender and full_name are nullable since they are not part of our initial data and we are going to populate them later. We are also using aliases
+Notice that *gender* and *full_name* are nullable since they are not part of our initial data and we are going to populate them later.
 
 We're not going to look at the configuration of every processor, but here is a brief description of what each processor is doing:
 
@@ -138,23 +138,23 @@ We're not going to look at the configuration of every processor, but here is a b
 * *LookupRecord* populates the gender field by passing the value of the title field to a lookup service
 * *PutSolrContentStream* sends the data to Solr
 
-For the Solr processor we have set the Collection property to *${solr.collection}* so that we can reference a variable. If we right-click on the canvas somewhere and select "Variables", we can see the definition of this variable.
+For the Solr processor, the Collection property is set to *${solr.collection}* which is referencing a variable. If we right-click on the canvas somewhere and select "Variables", we can see the definition of this variable.
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/04-nifi-dev-vars.png" class="img-responsive img-thumbnail">
 
-At this point we can ingest some data by copying the users-10.csv from earlier to the first NiFi's ingest directory:
+We can test ingesting some data by copying the users-10.csv from earlier to the development NiFi's ingest directory:
 
     cp users-10.csv nifi-1.5.0-1/data
 
-We can then verify this data was ingested to the *data-dev* collection in Solr:
+We can then verify the data was ingested to the *data-dev* collection in Solr:
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/05-solr-data-dev.png" class="img-responsive img-thumbnail">
 
 ### Starting Version Control
 
-We now have everything working in our development environment and want to deploy this flow to production.
+Now that we have everything working in our development environment, we want to deploy this flow to production.
 
-To get started we need to create a bucket in our NiFi Registry instance. Buckets are used as a way to organize items in the registry, and as mechanism to assign permissions to restrict access to data in the registry when running secured.
+To get started we need to create a bucket in our NiFi Registry instance. Buckets are used as a way to organize items in the registry, and as mechanism to assign permissions to restrict access to data when running secured.
 
 Clicking the tool icon in the top-right of the registry brings us to the bucket administration panel, and from there we can create a new bucket called "Solr Flows".
 
@@ -183,11 +183,11 @@ Refreshing the main page of the registry, we can see the version history for our
 ### Deploying to Production
 
 Now that we have our flow under version control and saved to the registry, we just need to import that flow into our
-production NiFi.
+production NiFi (port 7080).
 
-From the second NiFi instance (port 7080), we need to define the registry client just like we did in the previous section. See the steps from the previous section.
+Follow the same steps from the previous section to define the registry client in our production NiFi.
 
-After defining the registry client, we can drag a process group on to the canvas, and we'll have a new option to create a process group by importing a versioned flow.
+After defining the registry client, we can drag a process group on to the canvas, and see a new option to create a process group by importing a versioned flow.
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/12-nifi-prod-add-pg.png" class="img-responsive img-thumbnail">
 
@@ -213,4 +213,49 @@ Checking the data-prod collection in Solr, we can now see the data was ingested 
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/15-solr-data-prod.png" class="img-responsive img-thumbnail">
 
-### Deploying Updates
+### Modifying the Flow
+
+After having our flow running for some time, we decide to change the way errors are handled on the Solr processor. So we head back to our development NiFi and change our flow so that the failure relationship of PutSolrContentStream goes to a LogAttribute processor, instead of being auto-terminated.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/16-nifi-dev-update-flow.png" class="img-responsive img-thumbnail">
+
+Looking at our process group, we now see a different icon indicating that local changes have been made and our flow is no longer in-sync with the latest version in the registry.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/17-nifi-dev-local-changes.png" class="img-responsive img-thumbnail">
+
+From the Version menu, selecting "Show local changes" displays a list of everything that has changed since the last version.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/18-nifi-dev-local-changes-list.png" class="img-responsive img-thumbnail">
+
+When local changes have been made, we can either revert to get back to the last version, or commit to save the changes. In this case, we want to commit the changes so we can deploy them to production.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/19-nifi-dev-save-v2.png" class="img-responsive img-thumbnail">
+
+The registry now shows there are two versions of our flow.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/20-nifi-reg-v2.png" class="img-responsive img-thumbnail">
+
+### Updating Production
+
+From our production NiFi, we now see that a newer version of our flow is available.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/20-nifi-prod-upgrade-avail.png" class="img-responsive img-thumbnail">
+
+From the Version menu, we select "Change version" to upgrade to the newer version.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/21-nifi-prod-change-version.png" class="img-responsive img-thumbnail">
+
+After changing to the new version, we see the new LogAttribute processor connected to PutSolrContentStream.
+
+<img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/22-nifi-prod-updated-flow.png" class="img-responsive img-thumbnail">
+
+Notice the LogAttribute processor needs to be started because it was added as part of the update, but all other components remain running, and the variable change made earlier for the production Solr collection remained in place.
+
+### Summary
+
+Hopefully this gave a good introduction on how to leverage the new capabilities provided by NiFi and NiFi Registry.
+
+For additional information, check out the following resources:
+
+* [NiFi User Guide - Versioning a DataFlow](https://nifi.apache.org/docs/nifi-docs/html/user-guide.html#versioning_dataflow)
+* [NiFi Registry User Guide](https://nifi.apache.org/docs/nifi-registry-docs/html/user-guide.html)
