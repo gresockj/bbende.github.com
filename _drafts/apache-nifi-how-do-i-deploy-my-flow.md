@@ -18,11 +18,11 @@ A core feature of NiFi is that you can modify the live data flow without having 
 
 Over time there were some attempts at solving this problem, such as putting the flow.xml.gz under version control, or scripting the deployment of templates, but each of these had it's own issues and difficulties.
 
-In order to solve the problem, the community put a significant amount of effort into building direct support for version controlling data flows. The result of this effort was the creation of a whole new Apache NiFi sub-project, called *NiFi Registry*.
+In order to solve the problem, the community put a significant amount of effort into building direct support for version control of data flows. The result of this effort was the creation of a whole new Apache NiFi sub-project, called *NiFi Registry*.
 
 NiFi Registry is a complementary application that provides a central location for storage and management of shared resources. The first release focused on storing and managing versioned flows, and the 1.5.0 release of NiFi added the ability to interact with registry instances.
 
-The rest of this post is going to use an example scenario to show how NiFi and NiFi Registry can be used to deploy a data flow.
+The rest of this post is going to use an example scenario to show how these new capabilities can be used to solve the  deployment problem.
 
 ### Example Scenario
 
@@ -32,7 +32,7 @@ To generate some sample data we can run the following curl command:
 
     curl "https://randomuser.me/api/?format=csv&results=10&inc=name,email,registered&nat=us" > users-10.csv
 
-Looking at this data we should see something like:
+Looking at this data we should see something like the following:
 
     name.title,name.first,name.last,email,registered
     ms,lily,sims,lily.sims@example.com,2010-10-13 04:37:29
@@ -41,12 +41,13 @@ Looking at this data we should see something like:
 
 For the sake of this example, lets say we have the following requirements:
 
-* Use NiFi to ingest this data to Solr, converting from CSV to JSON
+* Use NiFi to ingest this data to Solr
+* Convert the data from CSV to JSON
 * Add a full_name field with the combination of first name + last name
-* Add a gender field based on the title
+* Add a gender field based on the title (i.e. Mr. = MALE)
 * Ingest to different Solr collections depending on environment   
 
-To simulate this scenario we are going to setup two NiFi instances to represent DEV and PROD, a Solr instance with DEV and PROD collections, and NiFi Registry instance facilitate deploying our flow.
+To simulate this scenario we are going to setup a Solr instance with collections for DEV and PROD, separate NiFi instances for DEV and PROD, and a NiFi Registry instance to share our flow between environments.
 
 ### Environment Setup
 
@@ -97,7 +98,7 @@ To simulate this scenario we are going to setup two NiFi instances to represent 
 
 ### Development Flow
 
-Download the template below and import it in the development NiFi instance (port 8080):
+To get started, download the template below and import to the development NiFi instance (port 8080):
 
 * [Solr-Ingest-User-Data.xml](https://gist.githubusercontent.com/bbende/3ab0c7a0a13f33253435fed57b8c8798/raw/9ab0453a2444e971d35168e99f5a38a04f1925f9/Solr-Ingest-User-Data.xml)
 
@@ -152,9 +153,9 @@ We can then verify the data was ingested to the *data-dev* collection in Solr:
 
 ### Starting Version Control
 
-Now that we have everything working in our development environment, we want to deploy this flow to production.
+Now that we have everything working in our development environment, we want to deploy this flow to production. In order to do that we are going to put our flow under version control using NiFi Registry.
 
-To get started we need to create a bucket in our NiFi Registry instance. Buckets are used as a way to organize items in the registry, and as mechanism to assign permissions to restrict access to data when running secured.
+To get started we need to create a bucket in our NiFi Registry instance. Buckets are a way to organize items in the registry, and serve as mechanism to assign permissions when running securely.
 
 Clicking the tool icon in the top-right of the registry brings us to the bucket administration panel, and from there we can create a new bucket called "Solr Flows".
 
@@ -164,7 +165,7 @@ Back in our development NiFi (port 8080), we need to tell NiFi about our registr
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/07-nifi-reg-clients.png" class="img-responsive img-thumbnail">
 
-Once there is a registry client defined, there should now be a new "Version" menu available when right-clicking on process groups.
+Once there is a registry client defined, there will be a "Version" menu available when right-clicking on process groups.
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/08-nifi-dev-start-vc.png" class="img-responsive img-thumbnail">
 
@@ -197,7 +198,7 @@ Selecting "Import" will prompt us to select the registry, bucket, flow, and vers
 
 After selecting our flow, we now have the exact same flow in our production environment.
 
-Remembering that we want to use a different Solr collection in production, we need to edit the variables so that *${solr.collection}* points to our production collection (data-prod).
+Remember that we want to use a different Solr collection in production, so we need to edit the variables so that *${solr.collection}* points to our production collection (data-prod).
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/14-nifi-prod-vars.png" class="img-responsive img-thumbnail">
 
@@ -205,7 +206,7 @@ We also have to enable all of the controller services and start all of the proce
 
 NOTE: These two operations of editing variables and enabling/starting components are only necessary on the first import to get everything setup. On future updates these values will be retained.
 
-With everything running, we can now copy the users-10.csv file to the data directory under the second NiFi:
+With everything running, we can now copy the users-10.csv file to the data directory under the production NiFi:
 
     cp users-10.csv nifi-1.5.0-2/data/
 
@@ -215,7 +216,7 @@ Checking the data-prod collection in Solr, we can now see the data was ingested 
 
 ### Modifying the Flow
 
-After having our flow running for some time, we decide to change the way errors are handled on the Solr processor. So we head back to our development NiFi and change our flow so that the failure relationship of PutSolrContentStream goes to a LogAttribute processor, instead of being auto-terminated.
+After having our flow running for some time, we may decide to change the way errors are handled on the Solr processor. So we head back to our development NiFi and connect the failure relationship of PutSolrContentStream to a LogAttribute processor, instead of being auto-terminated.
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-deploy-flow/16-nifi-dev-update-flow.png" class="img-responsive img-thumbnail">
 
