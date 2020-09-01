@@ -79,7 +79,8 @@ theme :
 
           <div class="row">
             <div class="col-md-12">
-              <p class="post-meta">Software developer interested in Java, big-data, and open-source development / Apache NiFi PMC & Committer</p>
+              <p class="post-meta">Software developer interested in Java, big-data, and open-source development </p>
+              <p class="post-meta">Apache NiFi PMC & Committer</p>
             </div>
           </div>
 
@@ -105,5 +106,10 @@ theme :
       </div>
       <hr/>
    {% endfor %}
+   <p>
+    <div class="content">
+      <a href="{{ BASE_PATH }}/archive.html">Older Posts --></a>
+    </div>
+   </p>
   </div>
 </div>

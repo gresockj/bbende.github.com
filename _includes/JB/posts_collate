@@ -31,7 +31,11 @@ Usage:
       <div>
     {% endif %}
 
-    <h4><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h4>
+    <p>
+      <div class="content">
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+      </div>
+    </p>
 
     {% if forloop.last %}
       <hr/>
