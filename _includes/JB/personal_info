@@ -10,7 +10,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-3 col-md-4">
-          <img src="{{ BASE_PATH }}/self_photo_3.jpg" class="img-responsive img-rounded">
+          <img src="{{ BASE_PATH }}/assets/images/self-photos/self_photo_3.jpg" class="img-responsive img-rounded">
       </div>
       <div class="col-xs-9 col-md-8">
          <p>Software developer interested in Java, big-data, and open-source development</p>

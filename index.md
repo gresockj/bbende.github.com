@@ -15,7 +15,7 @@ theme :
 
       <div class="row">
         <div class="col-xs-3 col-md-2">
-          <img src="{{ BASE_PATH }}/self_photo_bw.jpg" class="img-responsive img-rounded">
+          <img src="{{ BASE_PATH }}/assets/images/self-photos/self_photo_bw.jpg" class="img-responsive img-rounded">
         </div>
         <div class="col-xs-9 col-md-10">
 
