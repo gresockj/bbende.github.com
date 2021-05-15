@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "K3s on Raspberry Pi - Volumes & Storage"
+title: "K3s on Raspberry Pi - Volumes and Storage"
 description: ""
 category: "Development"
 tags: [kubernetes,k3s,raspberry-pi]
