@@ -3,7 +3,7 @@ layout: post
 title: "K3s on Raspberry Pi - Jenkins / Registry (Part 1)"
 description: ""
 category: "Development"
-tags: [kubernetes,k3s,raspberry-pi]
+tags: [kubernetes,k3s,raspberry-pi,jenkins]
 ---
 {% include JB/setup %}
 
