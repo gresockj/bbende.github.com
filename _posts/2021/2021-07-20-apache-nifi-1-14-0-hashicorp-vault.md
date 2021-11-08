@@ -132,7 +132,12 @@ cd nifi-1.14.0
 tail -f logs/nifi-app.log
 ```
 
-Once you see the following, `Ctrl-C` from tailing the log and stop NiFi:
+Once you see the following:
+```
+2021-07-20 15:12:32,167 INFO [main] org.apache.nifi.web.server.JettyServer NiFi has started. The UI is available at the following URLs:
+2021-07-20 15:12:32,167 INFO [main] org.apache.nifi.web.server.JettyServer https://127.0.0.1:8443/nifi
+```
+Then `Ctrl-C` from tailing the log and stop NiFi:
 ```
 ./bin/nifi.sh stop
 ```
