@@ -16,13 +16,13 @@ This post will examine the differences between running a flow in traditional NiF
 ## Traditional NiFi
 
 As an example, let's assume there is a Kafka topic with CDC events and we want to consume the
-events and apply them to a another relational database. This can be achieved with a simple flow
+events and apply them to another relational database. This can be achieved with a simple flow
 containing `ConsumeKafka_2_6` connected to `PutDatabaseRecord`.
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-stateless/01-traditional-flow.png" class="img-responsive">
 
 In traditional NiFi, each node has a set of internal repositories that are stored on local disk. The *Flow File Repository*
-contains the state of each flow file, including it's attributes and location in the flow, and the *Content Repository*
+contains the state of each flow file, including its attributes and location in the flow, and the *Content Repository*
 stores the content of each flow file.
 
 Each execution of a processor is given a reference to a session that acts like a transaction for operating on
