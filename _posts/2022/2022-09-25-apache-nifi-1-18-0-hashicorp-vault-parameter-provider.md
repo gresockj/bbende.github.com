@@ -127,7 +127,7 @@ Apply the changes, and then click the lightning bolt button to enable the servic
 
 <img src="{{ BASE_PATH }}/assets/images/nifi-parameter-providers/08-enable-service.png" class="img-responsive" width="80%" height="80%">
 
-Click the `HashiCorpVaultParameterProvider` on this screen to go back to the provider.  Edit the provider so we can inspect its other
+Close this dialog and then return to the Parameter Providers tab. Edit the provider so we can inspect its other
 properties.  Notice that the 'Key/Value Path' defaults to `kv`, which is the same path we used above when enabling the secrets engine in Vault.
 This is where you would change the path if you used a different one.  Also notice the 'Secret Name Pattern' property.  This allows us to
 limit which secrets in this Vault path are pulled in as parameters, which can be useful if more than just the ones we want are present.  To demonstrate

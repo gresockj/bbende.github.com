@@ -157,9 +157,9 @@ flag it as "missing".  Applying the fetched parameters would leave the parameter
 parameter was no longer referenced in the flow, the next Fetch would not return `sys.other`.  This helps to essentially
 deprecate any parameters that are removed from the source without invalidating the flow when the parameters are applied.
 
-### Composed Provided Parameter ContextualSerializer
+### Composed Provided Parameter Contexts
 
-A powerful pattern, then, is to create separate Parameter Providers as necessary, and simply compose their created Parameter Contexts through
+A powerful pattern, then, is to create separate Parameter Providers for different sources, and then simply compose their created Parameter Contexts through
 inheritance.  This allows sensitive parameters to originate from a secrets manager, like HashiCorp Vault, and
 non-sensitive parameters to originate from other sources like Environment Variables or the filesystem.  In the following
 simple example, I created an EnvironmentVariableParameterProvider, applied the parameters as non-sensitive, and then
